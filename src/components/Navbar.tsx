@@ -38,7 +38,7 @@ export default function Navbar() {
   const [isCalendlyLoaded, setIsCalendlyLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const CALENDLY_URL = "https://calendly.com/zyflux-info/30min";
+  const CALENDLY_URL = "https://cal.com/zyflux/30min";
 
   const navItems = [
     { name: "Home", href: "/", icon: Home },

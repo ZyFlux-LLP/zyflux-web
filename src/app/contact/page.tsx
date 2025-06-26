@@ -1,6 +1,6 @@
 'use client';
 import emailjs from 'emailjs-com';
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Twitter } from "lucide-react";
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import {
   ArrowRight,
@@ -13,8 +13,9 @@ import {
   CheckCircle,
   Zap,
   Target,
-  Star,Facebook, Linkedin, Instagram, Github 
+  Star, Linkedin, Instagram, Github
 } from 'lucide-react';
+import Link from 'next/link';
 
 interface FormData {
   name: string;
@@ -160,14 +161,6 @@ export default function ContactPage() {
 
   const contactMethods: ContactMethod[] = [
     {
-      icon: <Facebook className="w-6 h-6" />,
-      title: "Facebook",
-      description: "Follow us on Facebook",
-      contact: "/zyflux",
-      action: "https://facebook.com/zyflux",
-      color: "from-blue-700 to-blue-500",
-    },
-    {
       icon: <Linkedin className="w-6 h-6" />,
       title: "LinkedIn",
       description: "Connect on LinkedIn",
@@ -179,30 +172,38 @@ export default function ContactPage() {
       icon: <Instagram className="w-6 h-6" />,
       title: "Instagram",
       description: "See our latest work",
-      contact: "@zyflux.in",
-      action: "https://instagram.com/zyflux.in",
+      contact: "@zyflux_com",
+      action: "https://instagram.com/zyflux_com",
       color: "from-pink-500 to-yellow-500",
+    },
+    {
+      icon: <Twitter className="w-6 h-6" />,
+      title: "X",
+      description: "Check our Twitter handle",
+      contact: "@zyflux_com",
+      action: "https://twitter.com/zyflux_com",
+      color: "from-gray-700 to-black",
     },
     {
       icon: <Github className="w-6 h-6" />,
       title: "GitHub",
       description: "Browse our codebase",
-      contact: "@zyflux",
-      action: "https://github.com/zyflux",
+      contact: "@github.com/ZyFlux-LLP",
+      action: "https://github.com/ZyFlux-LLP",
       color: "from-gray-700 to-black",
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
       description: "Get a response within 2 hours",
-      contact: "info@zyflux.in",
-      action: "mailto:info@zyflux.in",
+      contact: "team@zyflux.com",
+      action: "mailto:team@zyflux.com",
       color: "from-blue-600 to-cyan-600",
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      description: "Mon-Sat, 9AM-8PM IST",
+      description: "24/7 Support",
       contact: "+91 9867787160",
       action: "tel:+919867787160",
       color: "from-green-600 to-teal-600",
@@ -223,9 +224,9 @@ export default function ContactPage() {
       action: handleScheduleMeeting,
       color: "from-purple-600 to-pink-600",
     },
-   
+
   ];
-  
+
 
   const services: string[] = [
     "Web Development",
@@ -240,11 +241,10 @@ export default function ContactPage() {
   ];
 
   const budgetRanges: string[] = [
-    "₹25,000 - ₹50,000",
-    "₹50,000 - ₹1,00,000",
-    "₹1,00,000 - ₹2,00,000",
-    "₹2,00,000 - ₹5,00,000",
-    "₹5,00,000+",
+    "$500 - $1000",
+    "$1000 - $5000",
+    "$5000 - $10000",
+    "$10000+",
     "Let's discuss"
   ];
 
@@ -340,15 +340,23 @@ export default function ContactPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <a
-              href="#contact-form"
+            <button
+              onClick={() => {
+                const contactSection = document.getElementById('contact-form');
+                if (contactSection) {
+                  contactSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
               className="group bg-white text-black px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-gray-200 flex items-center gap-2"
             >
               Start Your Project
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </button>
 
-            <a
+            <Link
               href="https://wa.me/919867787160"
               target="_blank"
               rel="noopener noreferrer"
@@ -356,7 +364,7 @@ export default function ContactPage() {
             >
               <MessageCircle className="w-5 h-5" />
               WhatsApp Us
-            </a>
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
@@ -400,64 +408,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Methods */}
-      <section className="py-24 bg-gray-950" id="GetInTouch">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8">
-              Get In <span className=" text-[#4ab9a9]">Touch</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Choose your preferred way to connect with us
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {contactMethods.map((method, index) => {
-              const commonClasses =
-                "group bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-8 hover:border-white/30 transition-all duration-300 transform hover:scale-105";
-
-              const content = (
-                <>
-                  <div className="text-white mb-6 group-hover:scale-110 transition-transform">
-                    {method.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{method.title}</h3>
-                  <p className="text-gray-300 mb-6 leading-relaxed">{method.description}</p>
-                  <p className="text-white font-semibold">{method.contact}</p>
-                </>
-              );
-
-              if (typeof method.action === "string") {
-                const isExternal = method.action.startsWith("http");
-                return (
-                  <a
-                    key={index}
-                    href={method.action}
-                    target={isExternal ? "_blank" : "_self"}
-                    rel={isExternal ? "noopener noreferrer" : ""}
-                    className={commonClasses}
-                  >
-                    {content}
-                  </a>
-                );
-              } else {
-                return (
-                  <button
-                    key={index}
-                    onClick={method.action}
-                    className={commonClasses + " w-full text-left"}
-                  >
-                    {content}
-                  </button>
-                );
-              }
-            })}
-          </div>
-
-        </div>
-      </section>
-
       {/* Contact Form */}
       <section id="contact-form" className="py-24 bg-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -478,7 +428,7 @@ export default function ContactPage() {
                 Thank you for reaching out. We&apos;ll get back to you within 2 hours during business hours.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <a
+                <Link
                   href="https://wa.me/919867787160"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -486,14 +436,14 @@ export default function ContactPage() {
                 >
                   <MessageCircle className="w-5 h-5" />
                   Chat on WhatsApp
-                </a>
-                <a
+                </Link>
+                <Link
                   href="tel:+919876543210"
                   className="border border-white text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-white hover:text-black flex items-center gap-2 justify-center"
                 >
                   <Phone className="w-5 h-5" />
                   Call Us Now
-                </a>
+                </Link>
               </div>
             </div>
           ) : (
@@ -579,7 +529,7 @@ export default function ContactPage() {
 
                   <div>
                     <label className="block text-white font-semibold text-lg mb-4">
-                      Budget Range
+                      Estimated Cost
                     </label>
                     <select
                       name="budget"
@@ -587,7 +537,7 @@ export default function ContactPage() {
                       onChange={handleInputChange}
                       className="w-full bg-black border border-gray-700 rounded-xl px-6 py-4 text-white text-lg focus:border-white focus:outline-none transition-all"
                     >
-                      <option value="">Select budget range</option>
+                      <option value="">Select Estimated Cost</option>
                       {budgetRanges.map((budget, index) => (
                         <option key={index} value={budget}>{budget}</option>
                       ))}
@@ -646,7 +596,7 @@ export default function ContactPage() {
                     )}
                   </button>
 
-                  <a
+                  <Link
                     href="https://wa.me/919867787160"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -654,7 +604,7 @@ export default function ContactPage() {
                   >
                     <MessageCircle className="w-5 h-5" />
                     Quick WhatsApp
-                  </a>
+                  </Link>
                 </div>
 
                 <p className="text-gray-400 text-center mt-8 text-lg">
@@ -666,71 +616,126 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Contact Methods */}
+      <section className="py-24 bg-gray-950" id="GetInTouch">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8">
+              Get In <span className=" text-[#4ab9a9]">Touch</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Choose your preferred way to connect with us
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {contactMethods.map((method, index) => {
+              const commonClasses =
+                "group bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-8 hover:border-white/30 transition-all duration-300 transform hover:scale-105";
+
+              const content = (
+                <>
+                  <div className="text-white mb-6 group-hover:scale-110 transition-transform">
+                    {method.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">{method.title}</h3>
+                  <p className="text-gray-300 mb-6 leading-relaxed">{method.description}</p>
+                  <p className="text-white font-semibold">{method.contact}</p>
+                </>
+              );
+
+              if (typeof method.action === "string") {
+                const isExternal = method.action.startsWith("http");
+                return (
+                  <Link
+                    key={index}
+                    href={method.action}
+                    target={isExternal ? "_blank" : "_self"}
+                    rel={isExternal ? "noopener noreferrer" : ""}
+                    className={commonClasses}
+                  >
+                    {content}
+                  </Link>
+                );
+              } else {
+                return (
+                  <button
+                    key={index}
+                    onClick={method.action}
+                    className={commonClasses + " w-full text-left"}
+                  >
+                    {content}
+                  </button>
+                );
+              }
+            })}
+          </div>
+
+        </div>
+      </section>
       {/* FAQ Section */}
       <section className="py-24 bg-gray-950">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8">
-            Frequently Asked <span className="text-[#4ab9a9]">Questions</span>
-          </h2>
-          <p className="text-xl text-gray-300 leading-relaxed">
-            Got questions? We&apos;ve got answers.
-          </p>
-        </div>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8">
+              Frequently Asked <span className="text-[#4ab9a9]">Questions</span>
+            </h2>
+            <p className="text-xl text-gray-300 leading-relaxed">
+              Got questions? We&apos;ve got answers.
+            </p>
+          </div>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-gray-800 bg-gradient-to-b from-gray-900 to-black rounded-2xl overflow-hidden"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full text-left flex items-center justify-between px-6 py-5 focus:outline-none"
-              >
-                <span className="text-white text-xl font-semibold">
-                  {faq.question}
-                </span>
-                <ChevronDown
-                  className={`w-6 h-6 text-white transform transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
               <div
-                className={`transition-all duration-300 px-6 text-gray-300 text-lg leading-relaxed ${
-                  openIndex === index ? "max-h-[500px] py-4" : "max-h-0 overflow-hidden"
-                }`}
+                key={index}
+                className="border border-gray-800 bg-gradient-to-b from-gray-900 to-black rounded-2xl overflow-hidden"
               >
-                {faq.answer}
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full text-left flex items-center justify-between px-6 py-5 focus:outline-none"
+                >
+                  <span className="text-white text-xl font-semibold">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-6 h-6 text-white transform transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""
+                      }`}
+                  />
+                </button>
+                <div
+                  className={`transition-all duration-300 px-6 text-gray-300 text-lg leading-relaxed ${openIndex === index ? "max-h-[500px] py-4" : "max-h-0 overflow-hidden"
+                    }`}
+                >
+                  {faq.answer}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <div className="text-center mt-16">
-          <p className="text-gray-300 mb-8 text-xl">Still have questions?</p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a
-              href="https://wa.me/919867787160"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-black px-10 py-5 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-gray-200 flex items-center justify-center gap-3"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Chat with us on WhatsApp
-            </a>
-            <a
-              href="mailto:info@zyflux.in"
-              className="border border-white text-white px-10 py-5 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-white hover:text-black flex items-center justify-center gap-3"
-            >
-              <Mail className="w-5 h-5" />
-              Email Us
-            </a>
+          <div className="text-center mt-16">
+            <p className="text-gray-300 mb-8 text-xl">Still have questions?</p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link
+                href="https://wa.me/919867787160"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-black px-10 py-5 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-gray-200 flex items-center justify-center gap-3"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Chat with us on WhatsApp
+              </Link>
+              <Link
+                href="mailto:team@zyflux.com"
+                className="border border-white text-white px-10 py-5 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-white hover:text-black flex items-center justify-center gap-3"
+              >
+                <Mail className="w-5 h-5" />
+                Email Us
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     </div>
   );

@@ -44,6 +44,8 @@
   --animate-marquee: marquee var(--duration, 30s) linear infinite;
   --color-sky-500: var(----sky-500);
   --color-sky-400: var(----sky-400);
+  --color-brand-foreground: var(----brand-foreground);
+  --color-brand: var(----brand);
 
   @keyframes marquee {
     to {
@@ -53,6 +55,14 @@
   @keyframes marquee {
   to {
     transform: translateX(-50%);
+    }
+  }
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
     }
   }
 }
@@ -92,6 +102,8 @@
   --sidebar-ring: oklch(0.708 0 0);
   --sky-400: #38bdf8;
   --sky-500: #0ea5e9;
+  --brand: hsl(266 100% 50%);
+  --brand-foreground: hsl(270 100% 98%);
 }
 
 .dark {
@@ -128,6 +140,8 @@
   --sidebar-ring: oklch(0.556 0 0);
   --sky-400: #38bdf8;
   --sky-500: #0ea5e9;
+  --brand: hsl(266 70% 60%);
+  --brand-foreground: hsl(270 100% 98%);
 }
 
 @layer base {

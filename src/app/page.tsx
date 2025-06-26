@@ -8,49 +8,84 @@ import {
   Image as ImageIcon,
   PenTool,
 } from 'lucide-react';
+import { TestimonialsSection } from "@/components/blocks/testimonials-with-marquee"
+import Link from 'next/link';
 
 export default function ZyFluxHomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const carouselSlides = [
     {
-      title: "Enterprise Resource Planning System",
-      subtitle: "Streamlining Business Operations",
-      description: "Developed a comprehensive ERP solution that integrated all business processes, resulting in 40% operational efficiency improvement and $2M annual cost savings.",
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=600&fit=crop&auto=format",
-      stats: { metric1: "40%", label1: "Efficiency Gain", metric2: "$2M", label2: "Annual Savings" },
-      technologies: ["Enterprise Architecture", "Cloud Integration", "Data Analytics", "Process Automation"],
+      ctaLink: "/projects/",
+      title: "Dainik Nirnayak – Smart Newspaper Management System",
+      subtitle: "Transforming Traditional Newspaper Operations with Digital Automation",
+      description: "Digitized entire newspaper production and advertisement billing workflow with custom web-based application. Managed editorial uploads, real-time approval flows, PDF generation, client billing, and GST-based invoicing in a centralized dashboard.",
+      image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&h=600&fit=crop&auto=format",
+      stats: { metric1: "10 Days", label1: "Early Delivery", metric2: "100%", label2: "Workflow Automation" },
+      technologies: ["ReactJS", "Firebase", "PDF Generation", "GST Integration"],
       cta: "View Case Study"
     },
     {
-      title: "Manufacturing Excellence Program",
-      subtitle: "Operational Transformation",
-      description: "Led digital transformation initiative for manufacturing company, implementing IoT solutions and smart analytics that increased production capacity by 60%.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop&auto=format",
-      stats: { metric1: "60%", label1: "Production Increase", metric2: "25%", label2: "Cost Reduction" },
-      technologies: ["IoT Integration", "Smart Analytics", "Lean Manufacturing", "Quality Systems"],
+      ctaLink: "/projects/",
+      title: "Sparksfly",
+      subtitle: "Igniting New Connections – A Modern Dating Experience",
+      description: "User-centric dating application facilitating genuine connections through interactive, secure interfaces. Features swipe-based matching with deeper compatibility insights, real-time chat, and personalized algorithms.",
+      image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=1200&h=600&fit=crop&auto=format",
+      stats: { metric1: "6 Weeks", label1: "Delivery Time", metric2: "Real-time", label2: "Chat & Matching" },
+      technologies: ["FlutterFlow", "Firebase", "Dart", "Real-time Sync"],
       cta: "Explore Project"
     },
     {
-      title: "Retail Chain Expansion Strategy",
-      subtitle: "Strategic Growth Initiative",
-      description: "Developed comprehensive expansion strategy for retail chain, including market analysis, location optimization, and operational scaling that enabled 300% growth.",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=600&fit=crop&auto=format",
-      stats: { metric1: "300%", label1: "Business Growth", metric2: "50+", label2: "New Locations" },
-      technologies: ["Market Analysis", "Location Intelligence", "Operations Scaling", "Brand Strategy"],
+      ctaLink: "/projects/",
+      title: "Iluzn",
+      subtitle: "A Safe Space to Meet, Chat & Connect",
+      description: "Privacy-focused dating application emphasizing user safety and authentic connections. Features identity verification, secure chat system, in-app reporting, and user moderation tools for responsible interaction.",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&h=600&fit=crop&auto=format",
+      stats: { metric1: "6 Weeks", label1: "Delivery Time", metric2: "Multi-layer", label2: "Authentication" },
+      technologies: ["FlutterFlow", "Firebase", "Identity Verification", "Security"],
       cta: "Learn More"
     },
     {
-      title: "Financial Services Innovation",
-      subtitle: "Fintech Development",
-      description: "Created next-generation banking platform with advanced security and user experience, serving 500,000+ customers with 99.9% uptime reliability.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop&auto=format",
-      stats: { metric1: "500K+", label1: "Active Users", metric2: "99.9%", label2: "Uptime" },
-      technologies: ["Financial Systems", "Security Architecture", "User Experience", "Compliance"],
-      cta: "See Demo"
-    }
-  ];
+      ctaLink: "/projects/",
+      title: "Prathanam Holidays",
+      subtitle: "Wander, Explore & Book with Ease",
+      description: "Visually rich travel & tourism website showcasing curated packages and destination guides. Built with SEO optimization, dynamic package listings, and easy content management for hassle-free tour bookings.",
+      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&h=600&fit=crop&auto=format",
+      stats: { metric1: "3 Weeks", label1: "Delivery Time", metric2: "SEO", label2: "Optimized" },
+      technologies: ["Wix Studios", "SEO", "CMS", "Lead Generation"],
+      cta: "View Project"
+    },
+    {
+      ctaLink: "/projects/",
 
+      title: "Namma Pondy",
+      subtitle: "Hyperlocal Food Delivery, Reimagined",
+      description: "Location-based food delivery application connecting users with local eateries in Pondicherry. Features geo-location restaurant listings, live delivery tracking, and multi-user role architecture.",
+      image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=1200&h=600&fit=crop&auto=format",
+      stats: { metric1: "8 Weeks", label1: "Delivery Time", metric2: "3 Roles", label2: "User Architecture" },
+      technologies: ["FlutterFlow", "Firebase", "Geo-location", "Real-time Tracking"],
+      cta: "Explore App"
+    },
+    {
+      ctaLink: "/projects/",
+      title: "MissCallPay (Biz & Ind)",
+      subtitle: "UPI on Voice – Simplified Merchant Transactions",
+      description: "Voice-enabled UPI payment application for merchants using missed calls and voice prompts. Designed for accessibility with minimal UI, smart automation, and secure financial transaction compliance.",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop&auto=format",
+      stats: { metric1: "10 Weeks", label1: "Delivery Time", metric2: "Voice", label2: "UPI Integration" },
+      technologies: ["Flutter", "Firebase", "Voice Commands", "UPI Gateway"],
+      cta: "View Details"
+    },
+    {
+      ctaLink: "/projects/",
+      title: "Metoospace",
+      subtitle: "Smart Booking for Smarter Hotels",
+      description: "Mobile application for browsing, filtering, and booking hotels across cities. Features real-time room availability, secure booking engine, map-based UI, and comprehensive admin dashboards.",
+      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=600&fit=crop&auto=format",
+      stats: { metric1: "8 Weeks", label1: "Delivery Time", metric2: "Real-time", label2: "Inventory Sync" },
+      technologies: ["Flutter", "Firebase", "Payment Integration", "Admin Dashboard"],
+      cta: "Learn More"
+    },
+  ];
   // Auto-advance carousel
   useEffect(() => {
     const timer = setInterval(() => {
@@ -58,6 +93,7 @@ export default function ZyFluxHomePage() {
     }, 6000);
     return () => clearInterval(timer);
   }, [carouselSlides.length]);
+
 
   const services = [
     {
@@ -72,6 +108,7 @@ export default function ZyFluxHomePage() {
         "Maintenance & Hosting Support"
       ],
       image: "https://images.unsplash.com/photo-1581091870622-2fe09fdd9264?w=400&h=300&fit=crop&auto=format",
+      videoSrc: "/assets/Web Dev.webm",
       link: "/services/#web-development"
     },
     {
@@ -86,6 +123,7 @@ export default function ZyFluxHomePage() {
         "Store Deployment"
       ],
       image: "https://images.unsplash.com/photo-1614281512486-85fde2e201d9?w=400&h=300&fit=crop&auto=format",
+      videoSrc: "/assets/Mobile App.webm",
       link: "/services/#app-development"
     },
     {
@@ -100,6 +138,7 @@ export default function ZyFluxHomePage() {
         "Cloud-Based AI Deployment"
       ],
       image: "https://images.unsplash.com/photo-1508385082359-f38ae991e8f5?w=400&h=300&fit=crop&auto=format",
+      videoSrc: "/assets/AI Dev.webm",
       link: "/services/#ai-solutions"
     },
     {
@@ -114,6 +153,7 @@ export default function ZyFluxHomePage() {
         "UI Visual Assets"
       ],
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop&auto=format",
+      videoSrc: "/assets/Graphics.webm",
       link: "/services/#graphics-design"
     },
     {
@@ -128,6 +168,7 @@ export default function ZyFluxHomePage() {
         "Design Systems"
       ],
       image: "https://images.unsplash.com/photo-1559027615-8a3b17ae6f62?w=400&h=300&fit=crop&auto=format",
+      videoSrc: "/assets/UI_UX.webm",
       link: "/services/#uiux-design"
     },
     {
@@ -142,6 +183,7 @@ export default function ZyFluxHomePage() {
         "Content Marketing"
       ],
       image: "https://images.unsplash.com/photo-1556742400-b5df941d2922?w=400&h=300&fit=crop&auto=format",
+      videoSrc: "/assets/Digital.webm",
       link: "/services/#digital-marketing"
     },
   ];
@@ -156,35 +198,79 @@ export default function ZyFluxHomePage() {
   };
 
   const stats = [
-    { number: "200+", label: "Projects Delivered", icon: <Award className="w-6 h-6" /> },
-    { number: "150+", label: "Happy Clients", icon: <Users className="w-6 h-6" /> },
-    { number: "8+", label: "Years Experience", icon: <Star className="w-6 h-6" /> },
+    { number: "20+", label: "Projects Delivered", icon: <Award className="w-6 h-6" /> },
+    { number: "15+", label: "Happy Clients", icon: <Users className="w-6 h-6" /> },
+    { number: "3+", label: "Years Experience", icon: <Star className="w-6 h-6" /> },
     { number: "24/7", label: "Support", icon: <MessageCircle className="w-6 h-6" /> }
   ];
 
   const testimonials = [
     {
-      name: "Rajesh Patel",
-      company: "CEO, TechCorp Industries",
-      text: "ZyFlux transformed our entire business operations. Their strategic approach and technical expertise helped us achieve 250% growth in just 18 months. Exceptional team with outstanding results.",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&auto=format"
+      author: {
+        name: "Dainik Nirnayak",
+        handle: "@dainiknirnayak",
+        avatar: "https://ui-avatars.com/api/?name=Dainik+Nirnayak&background=random"
+      },
+      text: "The system has made our day-to-day newspaper production incredibly smooth and efficient. From uploading pages to generating invoices, everything is now just a few clicks away. The team was proactive, responsive, and delivered beyond our expectations. Great job!",
+      href: "#"
     },
     {
-      name: "Priya Sharma",
-      company: "Founder, RetailNext",
-      text: "The business development strategy from ZyFlux was game-changing. They didn&apos;t just deliver a solution, they delivered a complete transformation that revolutionized our market presence.",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b2adc515?w=100&h=100&fit=crop&auto=format"
+      author: {
+        name: "Consulting Wizz – Sparksfly",
+        handle: "@sparksfly",
+        avatar: "https://ui-avatars.com/api/?name=Sparksfly&background=random"
+      },
+      text: "We came in with a vision for a dating app that doesn’t feel like every other. The team brought it to life quickly and efficiently — with minimal bugs and maximum creativity.",
+      href: "#"
     },
     {
-      name: "Amit Kumar",
-      company: "Director, Manufacturing Plus",
-      text: "Professional, innovative, and results-driven. ZyFlux understood our challenges and delivered solutions that exceeded our expectations. Their ongoing support is invaluable.",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&auto=format"
+      author: {
+        name: "Consulting Wizz – Iluzn",
+        handle: "@iluzn",
+        avatar: "https://ui-avatars.com/api/?name=Iluzn&background=random"
+      },
+      text: "From UI planning to deployment, the journey was incredibly smooth. The team understood the niche requirements and added valuable suggestions throughout.",
+      href: "#"
+    },
+    {
+      author: {
+        name: "Prathanam Holidays",
+        handle: "@prathanamholidays",
+        avatar: "https://ui-avatars.com/api/?name=Prathanam+Holidays&background=random"
+      },
+      text: "We wanted a site that’s both beautiful and functional — and got exactly that. The team made updates easy even after the handover.",
+      href: "#"
+    },
+    {
+      author: {
+        name: "Namma Pondy",
+        handle: "@nammapondy",
+        avatar: "https://ui-avatars.com/api/?name=Namma+Pondy&background=random"
+      },
+      text: "The app turned out exactly how we imagined. We were impressed by the responsiveness and the way the team translated our local vision into a scalable digital product.",
+      href: "#"
+    },
+    {
+      author: {
+        name: "MissCallPay",
+        handle: "@misscallpay",
+        avatar: "https://ui-avatars.com/api/?name=MissCallPay&background=random"
+      },
+      text: "Our app needed to work for users with low tech-literacy — and it does exactly that. The team delivered a thoughtful, functional, and inclusive solution.",
+      href: "#"
+    },
+    {
+      author: {
+        name: "Metoospace",
+        handle: "@metoospace",
+        avatar: "https://ui-avatars.com/api/?name=Metoospace&background=random"
+      },
+      text: "Great design, great backend, and even better support post-deployment. We’re now expanding features thanks to the smooth MVP launch.",
+      href: "#"
     }
   ];
+
+
 
   const processSteps = [
     {
@@ -216,7 +302,7 @@ export default function ZyFluxHomePage() {
     const el = document.getElementById('next-section');
     el?.scrollIntoView({ behavior: 'smooth' });
   };
-  
+
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
@@ -238,7 +324,7 @@ export default function ZyFluxHomePage() {
 
         <div className="relative z-30 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            
+
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               <span className="block text-white">Revolutionizing your </span>
               <span className="block text-white">business with</span>
@@ -297,37 +383,37 @@ export default function ZyFluxHomePage() {
             </div>
           </div>
         </div>
-        
-<button
-  onClick={handleScroll}
-  className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-30"
->
-  <ChevronDown className="w-6 h-6 text-white/60 cursor-pointer" />
-</button>
+
+        <button
+          onClick={handleScroll}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-30"
+        >
+          <ChevronDown className="w-6 h-6 text-white/60 cursor-pointer" />
+        </button>
 
 
       </section>
 
-      {/* Success Stories Carousel */}
-      <section className="py-20 bg-black" id='next-section'>
+      {/* Success Stories Carousel - Improved Responsive Version */}
+      <section className="py-8 sm:py-12 lg:py-16 bg-black" id='next-section'>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+          <div className="text-center mb-6 sm:mb-10 lg:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-5">
               Success <span className="text-[#4ab9a9]">Stories</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
               Discover how we&apos;ve helped businesses achieve remarkable transformations and sustainable growth
             </p>
           </div>
 
           <div className="relative">
-            {/* Main Carousel Container */}
-            <div className="relative h-[600px] rounded-2xl overflow-hidden border border-white/10">
+            {/* Main Carousel Container - Now responsive height */}
+            <div className="relative h-[600px] sm:h-[550px] lg:h-[600px] rounded-lg sm:rounded-xl lg:rounded-2xl overflow-hidden border border-white/10">
               {carouselSlides.map((slide, index) => (
                 <div
-                  key={index}
+                  key={index} 
                   className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentSlide
                     ? 'opacity-100 transform translate-x-0'
                     : index < currentSlide
@@ -343,65 +429,71 @@ export default function ZyFluxHomePage() {
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/50 sm:from-black/90 sm:via-black/60 sm:to-black/40"></div>
                   </div>
 
-                  {/* Content */}
+                  {/* Content - Improved mobile layout */}
                   <div className="relative z-10 h-full flex items-center">
-                    <div className="max-w-5xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
-                      <div className="text-white">
-                        <div className="text-gray-400 text-sm font-medium mb-2 uppercase tracking-wide">
-                          {slide.subtitle}
+                    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-0">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
+                        <div className="text-white order-2 lg:order-1">
+                          <div className="text-gray-400 text-xs sm:text-sm font-medium mb-1 sm:mb-2 uppercase tracking-wide">
+                            {slide.subtitle}
+                          </div>
+                          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-5 leading-tight">
+                            {slide.title}
+                          </h3>
+                          <p className="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
+                            {slide.description}
+                          </p>
+
+                          {/* Technologies - Better mobile wrapping */}
+                          <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
+                            {slide.technologies.map((tech, idx) => (
+                              <span
+                                key={idx}
+                                className="bg-white/10 backdrop-blur-sm text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs sm:text-sm border border-white/20 hover:bg-white/20 transition-colors"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+
+                          <Link
+                            href={slide.ctaLink || '/'}
+                            className="group bg-white text-black px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 flex items-center gap-1 hover:bg-gray-100 text-xs sm:text-sm"
+                          >
+                            {slide.cta}
+                            <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+                          </Link>
+
                         </div>
-                        <h3 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                          {slide.title}
-                        </h3>
-                        <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                          {slide.description}
-                        </p>
 
-                        {/* Technologies */}
-                        <div className="flex flex-wrap gap-3 mb-8">
-                          {slide.technologies.map((tech, idx) => (
-                            <span
-                              key={idx}
-                              className="bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm border border-white/20 hover:bg-white/20 transition-colors"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-
-                        <button className="group bg-white text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 flex items-center gap-2 hover:bg-gray-100">
-                          {slide.cta}
-                          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                      </div>
-
-                      {/* Stats Card */}
-                      <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
-                        <div className="grid grid-cols-2 gap-6">
-                          <div className="text-center">
-                            <div className="text-4xl font-bold text-white mb-2">
-                              {slide.stats.metric1}
+                        {/* Stats Card - More compact on mobile */}
+                        <div className="bg-white/5 backdrop-blur-xl rounded-lg sm:rounded-xl lg:rounded-2xl p-3 sm:p-5 lg:p-6 border border-white/10 order-1 lg:order-2">
+                          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                            <div className="text-center">
+                              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1">
+                                {slide.stats.metric1}
+                              </div>
+                              <div className="text-gray-400 text-xs">
+                                {slide.stats.label1}
+                              </div>
                             </div>
-                            <div className="text-gray-400 text-sm">
-                              {slide.stats.label1}
+                            <div className="text-center">
+                              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1">
+                                {slide.stats.metric2}
+                              </div>
+                              <div className="text-gray-400 text-xs">
+                                {slide.stats.label2}
+                              </div>
                             </div>
                           </div>
-                          <div className="text-center">
-                            <div className="text-4xl font-bold text-white mb-2">
-                              {slide.stats.metric2}
-                            </div>
-                            <div className="text-gray-400 text-sm">
-                              {slide.stats.label2}
-                            </div>
-                          </div>
-                        </div>
 
-                        <div className="mt-6 pt-6 border-t border-white/20">
-                          <div className="text-center text-gray-400 text-sm">
-                            Project Impact Metrics
+                          <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-white/20">
+                            <div className="text-center text-gray-400 text-xs">
+                              Project Impact Metrics
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -411,27 +503,27 @@ export default function ZyFluxHomePage() {
               ))}
             </div>
 
-            {/* Navigation Arrows */}
+            {/* Navigation Arrows - Now visible on small screens with larger touch targets */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 z-20 border border-white/20"
+              className="absolute left-1 sm:left-2 lg:left-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-1.5 sm:p-2 lg:p-3 rounded-full transition-all duration-300 hover:scale-110 z-20 border border-white/20"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 z-20 border border-white/20"
+              className="absolute right-1 sm:right-2 lg:right-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-1.5 sm:p-2 lg:p-3 rounded-full transition-all duration-300 hover:scale-110 z-20 border border-white/20"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </button>
 
-            {/* Slide Indicators */}
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+            {/* Slide Indicators - More compact on mobile */}
+            <div className="absolute bottom-3 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1.5 sm:space-x-2 z-20">
               {carouselSlides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 border border-white/30 ${index === currentSlide
+                  className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 border border-white/30 ${index === currentSlide
                     ? 'bg-white scale-125'
                     : 'bg-white/30 hover:bg-white/50'
                     }`}
@@ -439,8 +531,8 @@ export default function ZyFluxHomePage() {
               ))}
             </div>
 
-            {/* Progress Bar */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
+            {/* Progress Bar - Thinner on mobile */}
+            <div className="absolute bottom-0 left-0 right-0 h-0.5 sm:h-1 bg-white/10">
               <div
                 className="h-full bg-white transition-all duration-300"
                 style={{ width: `${((currentSlide + 1) / carouselSlides.length) * 100}%` }}
@@ -450,12 +542,14 @@ export default function ZyFluxHomePage() {
         </div>
       </section>
 
+
+
       {/* Services Section */}
       <section id="services" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Our <span className=" text-[#4ab9a9]">Services</span>
+              Our <span className="text-[#4ab9a9]">Services</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Comprehensive business development solutions designed to accelerate growth and drive sustainable success
@@ -470,17 +564,28 @@ export default function ZyFluxHomePage() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                {/* Service Image */}
+                {/* Service Video */}
                 <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                  <div className="absolute bottom-4 left-6 text-white group-hover:text-gray-300 transition-colors">
-                    {service.icon}
+                  <div className="relative w-full h-full">
+                    <video
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                    >
+                      <source src={service.videoSrc} type="video/webm" />
+                      {/* Fallback image if video fails to load */}
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </video>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div className="absolute bottom-4 left-6 text-white group-hover:text-gray-300 transition-colors">
+                      {service.icon}
+                    </div>
                   </div>
                 </div>
 
@@ -541,46 +646,11 @@ export default function ZyFluxHomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Client <span className="text-[#4ab9a9]">Success Stories</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Don&apos;t just take our word for it - hear from our satisfied clients who&apos;ve achieved remarkable results
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 hover:border-[#4ab9a9] transition-all duration-300 transform hover:scale-105">
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
-                  ))}
-                </div>
-
-                <p className="text-gray-300 mb-6 italic">&ldquo;{testimonial.text}&rdquo;</p>
-
-                <div className="flex items-center gap-4">
-                  <Image
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    width={48}
-                    height={48}
-                    className="rounded-full object-cover"
-                  />
-                  <div>
-                    <h4 className="text-white font-semibold">{testimonial.name}</h4>
-                    <p className="text-gray-400 text-sm">{testimonial.company}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialsSection
+        title="Trusted by developers worldwide"
+        description="Join thousands of developers who are already building the future with our AI platform"
+        testimonials={testimonials}
+      />
 
       <style jsx>{`
         @keyframes fade-in-up {

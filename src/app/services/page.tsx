@@ -8,18 +8,8 @@ import {
   ArrowRight,
   CheckCircle,
   Phone,
-  Cloud,
-  Server,
-  Paintbrush,
-  Video,
-  Film,
   Image as ImageIcon,
-  Globe,
-  Search,
-  BarChart3,
   PenTool,
-  Layers,
-  Settings,
   Rocket,
   Users,
   Award,
@@ -27,7 +17,6 @@ import {
   Clock,
   Shield,
   Brain,
-  Zap
 } from 'lucide-react';
 
 export default function ServicesPage() {
@@ -47,13 +36,7 @@ export default function ServicesPage() {
         "SEO Optimization",
         "Maintenance & Hosting Support"
       ],
-      technologies: [
-        { name: "HTML/CSS/JS", icon: <Code className="w-6 h-6" /> },
-        { name: "WordPress", icon: <Globe className="w-6 h-6" /> },
-        { name: "Wix", icon: <Settings className="w-6 h-6" /> },
-        { name: "UI Libraries", icon: <Layers className="w-6 h-6" /> },
-        { name: "Hosting", icon: <Server className="w-6 h-6" /> }
-      ]
+      video: "/assets/Web Dev.webm" // Assuming this exists for web development
     },
     {
       id: 'app-development',
@@ -68,13 +51,7 @@ export default function ServicesPage() {
         "Firebase Backend",
         "App Store & Play Store Deployment"
       ],
-      technologies: [
-        { name: "FlutterFlow", icon: <Code className="w-6 h-6" /> },
-        { name: "Dart", icon: <Code className="w-6 h-6" /> },
-        { name: "Firebase", icon: <Zap className="w-6 h-6" /> },
-        { name: "Play Store", icon: <Smartphone className="w-6 h-6" /> },
-        { name: "App Store", icon: <Smartphone className="w-6 h-6" /> }
-      ]
+      video: "/assets/Mobile App.webm"
     },
     {
       id: "ai-solutions",
@@ -90,16 +67,8 @@ export default function ServicesPage() {
         "Deployment on Cloud Platforms",
         "Performance Monitoring"
       ],
-      technologies: [
-        { name: "Python", icon: <Code className="w-6 h-6" /> },
-        { name: "TensorFlow", icon: <Brain className="w-6 h-6" /> },
-        { name: "PyTorch", icon: <Brain className="w-6 h-6" /> },
-        { name: "AWS", icon: <Cloud className="w-6 h-6" /> },
-        { name: "Docker", icon: <Server className="w-6 h-6" /> },
-        { name: "MLflow", icon: <Zap className="w-6 h-6" /> }
-      ],
+      video: "/assets/AI Dev.webm"
     },
-
     {
       id: 'graphics-design',
       icon: <ImageIcon className="w-12 h-12" />,
@@ -113,13 +82,7 @@ export default function ServicesPage() {
         "Infographics",
         "UI Visual Assets"
       ],
-      technologies: [
-        { name: "Adobe Photoshop", icon: <ImageIcon className="w-6 h-6" /> },
-        { name: "Illustrator", icon: <Paintbrush className="w-6 h-6" /> },
-        { name: "Premiere Pro", icon: <Video className="w-6 h-6" /> },
-        { name: "After Effects", icon: <Film className="w-6 h-6" /> },
-        { name: "Figma Assets", icon: <Layers className="w-6 h-6" /> }
-      ]
+      video: "/assets/Graphics.webm"
     },
     {
       id: 'uiux-design',
@@ -134,12 +97,7 @@ export default function ServicesPage() {
         "Accessibility Design",
         "Design Systems"
       ],
-      technologies: [
-        { name: "Figma", icon: <PenTool className="w-6 h-6" /> },
-        { name: "Adobe XD", icon: <PenTool className="w-6 h-6" /> },
-        { name: "Design Systems", icon: <Settings className="w-6 h-6" /> },
-        { name: "Prototyping Tools", icon: <Layers className="w-6 h-6" /> }
-      ]
+      video: "/assets/UI_UX.webm"
     },
     {
       id: 'digital-marketing',
@@ -154,13 +112,7 @@ export default function ServicesPage() {
         "Social Media Campaigns",
         "Content Marketing"
       ],
-      technologies: [
-        { name: "SEO Tools", icon: <Search className="w-6 h-6" /> },
-        { name: "Google Ads", icon: <BarChart3 className="w-6 h-6" /> },
-        { name: "Meta Ads", icon: <Globe className="w-6 h-6" /> },
-        { name: "CRM Tools", icon: <Users className="w-6 h-6" /> },
-        { name: "Analytics", icon: <Target className="w-6 h-6" /> }
-      ]
+      video: "/assets/Digital.webm"
     },
   ];
 
@@ -227,7 +179,6 @@ export default function ServicesPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-
             <Link href="/contact#contact-form">
               <button className="group border border-white text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-white hover:text-black flex items-center gap-2">
                 <Phone className="w-5 h-5" />
@@ -258,18 +209,17 @@ export default function ServicesPage() {
                   <p className="text-gray-400 text-sm leading-relaxed mb-6">{service.subtitle}</p>
 
                   {/* Learn More Link */}
-                  <a
+                  <Link
                     href={`#${service.id}`}
                     className="flex items-center text-gray-400 text-sm group-hover:text-white transition-colors mt-auto"
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
@@ -307,21 +257,20 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a
+                  <Link
                     href="/contact#contact-form"
                     className="group bg-white text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-gray-200 flex items-center justify-center gap-2"
                   >
                     Get Started
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  </Link>
                 </div>
-
               </div>
 
-              {/* Visual */}
+              {/* Visual with Video */}
               <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
                 <div className="relative">
-                  <div className="bg-gradient-to-br from-black via-gray-900 to-black rounded-2xl p-12 h-[500px] flex flex-col justify-center items-center relative overflow-hidden border border-gray-800">
+                  <div className="bg-gradient-to-br from-black via-gray-900 to-black rounded-2xl p-8 h-[500px] flex flex-col justify-center items-center relative overflow-hidden border border-gray-800">
                     <div className="absolute inset-0 opacity-5">
                       <div className="h-full w-full"
                         style={{
@@ -331,22 +280,23 @@ export default function ServicesPage() {
                       </div>
                     </div>
 
-                    <div className="relative z-10 text-center">
-                      <div className="text-white mb-8">
-                        {service.icon}
+                    <div className="relative z-10 w-full h-full flex flex-col justify-center items-center">
+                      {/* Video Container */}
+                      <div className="w-full max-w-md h-80 mb-6 rounded-xl overflow-hidden border border-gray-700 bg-gray-900">
+                        <video 
+                          className="w-full h-full object-cover"
+                          autoPlay 
+                          loop 
+                          muted 
+                          playsInline
+                        >
+                          <source src={service.video} type="video/webm" />
+                          Your browser does not support the video tag.
+                        </video>
                       </div>
-                      <h3 className="text-3xl font-bold text-white mb-8">{service.title}</h3>
 
-                      <div className="grid grid-cols-2 gap-4 max-w-sm">
-                        {service.technologies.map((tech, idx) => (
-                          <div key={idx} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex flex-col items-center gap-2 hover:bg-white/20 transition-colors">
-                            <div className="text-white">
-                              {tech.icon}
-                            </div>
-                            <span className="text-white text-sm font-medium text-center">{tech.name}</span>
-                          </div>
-                        ))}
-                      </div>
+                      {/* Service Info */}
+                     
                     </div>
                   </div>
                 </div>

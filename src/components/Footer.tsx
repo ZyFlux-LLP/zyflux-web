@@ -4,15 +4,13 @@ import {
   Linkedin,
   Twitter,
   Instagram,
-  Facebook,
 } from 'lucide-react'; 
 const Footer = () => {
 
 const socials = [
-  { name: 'LinkedIn', href: '#', icon: Linkedin },
-  { name: 'Twitter', href: '#', icon: Twitter },
-  { name: 'Instagram', href: '#', icon: Instagram },
-  { name: 'Facebook', href: '#', icon: Facebook },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/zyflux', icon: Linkedin },
+  { name: 'Twitter', href: 'https://twitter.com/zyflux_com', icon: Twitter },
+  { name: 'Instagram', href: 'https://instagram.com/zyflux_com', icon: Instagram },
 ];
 
   return (
@@ -48,7 +46,7 @@ const socials = [
             <ul className="space-y-2 text-gray-400">
               <li><Link href="/services/#web-development" className="hover:text-white transition-colors">Web Development</Link></li>
               <li><Link href="/services/#app-development" className="hover:text-white transition-colors">App Development</Link></li>
-              <li><Link href="/services/#ai-solutions" className="hover:text-white transition-colors">Ai Solutions</Link></li>
+              <li><Link href="/services/#ai-solutions" className="hover:text-white transition-colors">AI Solutions</Link></li>
               <li><Link href="/services/#digital-marketing" className="hover:text-white transition-colors">Digital Marketing</Link></li>
               <li><Link href="/services/#uiux-design" className="hover:text-white transition-colors">UI/UX Design</Link></li>
               <li><Link href="/services/#graphics-design" className="hover:text-white transition-colors">Graphics & Multimedias</Link></li>
@@ -58,7 +56,7 @@ const socials = [
           <div>
             <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="/home" className="hover:text-white transition-colors">Home</Link></li>
+              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/projects" className="hover:text-white transition-colors">Projects</Link></li>
               <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
@@ -69,8 +67,8 @@ const socials = [
           <div>
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="mailto:info@zyflux.in" className="hover:text-white transition-colors">info@zyflux.in</a></li>
-              <li><a href="tel:+919867787160" className="hover:text-white transition-colors">+91 9867787160 / +44 75545 39838</a></li>
+              <li><Link href="mailto:team@zyflux.com" className="hover:text-white transition-colors">team@zyflux.com</Link></li>
+              <li><Link href="tel:+919867787160" className="hover:text-white transition-colors">+91 9867787160 / +44 75545 39838</Link></li>
               <li>H-3/1001 Valley Shilp CHS Kharghar Sec-36 Navi Mumbai 410210</li>
             </ul>
           </div>

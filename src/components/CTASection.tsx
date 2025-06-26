@@ -1,22 +1,10 @@
 "use client";
-
-import Image from "next/image";
 import { ArrowRight, MessageCircle, Clock, CheckCircle } from "lucide-react";
 import Link from "next/link";
 
 export default function CTASection() {
   return (
     <section className="py-20 bg-gradient-to-r from-gray-900 via-black to-gray-800 relative overflow-hidden">
-      <div className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&h=600&fit=crop&auto=format"
-          alt="Team collaboration"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-20"
-          priority
-        />
-      </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
@@ -36,7 +24,7 @@ export default function CTASection() {
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
 
-          <a
+          <Link
             href="https://wa.me/919867787160"
             target="_blank"
             rel="noopener noreferrer"
@@ -44,7 +32,7 @@ export default function CTASection() {
           >
             <MessageCircle className="w-5 h-5" />
             WhatsApp Us
-          </a>
+          </Link>
         </div>
 
         <div className="flex items-center justify-center gap-8 mt-8 text-gray-400">
