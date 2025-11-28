@@ -3,13 +3,17 @@ import emailjs from 'emailjs-com';
 import { ChevronDown, Twitter } from "lucide-react";
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import {
+  ArrowRight,
   Mail,
   Phone,
   MapPin,
   MessageCircle,
+  Clock,
   Send,
   CheckCircle,
-  Linkedin, Instagram, Github
+  Zap,
+  Target,
+  Star, Linkedin, Instagram, Github
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -243,7 +247,7 @@ export default function ContactPage() {
     "₹10000+",
     "Let's discuss"
   ];
-  
+
   const timelines: string[] = [
     "ASAP (Rush Job)",
     "Within 2 weeks",
@@ -310,9 +314,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
-      {/* Hero Section with Form */}
-
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-5">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         {/* Background Grid Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/50 to-black"></div>
@@ -326,8 +328,98 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Contact Form */}
+        <div className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
+            <span className="block text-white">Let&apos;s Create</span>
+            <span className="block text-[#4ab9a9]">Something</span>
+            <span className="block text-white">Amazing</span>
+          </h1>
+
+          <p className="text-xl sm:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+            Ready to transform your digital presence? Get in touch and let&apos;s discuss your next big project.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+            <button
+              onClick={() => {
+                const contactSection = document.getElementById('contact-form');
+                if (contactSection) {
+                  contactSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
+              className="group bg-white text-black px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-gray-200 flex items-center gap-2"
+            >
+              Start Your Project
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+
+            <Link
+              href="https://wa.me/919867787160"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group border border-white text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-white hover:text-black flex items-center gap-2"
+            >
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp Us
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+            <div className="text-center group">
+              <div className="text-3xl font-bold text-white mb-2 group-hover:text-gray-400 transition-colors">
+                &lt;2h
+              </div>
+              <div className="text-gray-400 text-sm flex items-center justify-center gap-1">
+                <Clock className="w-4 h-4" />
+                Response Time
+              </div>
+            </div>
+            <div className="text-center group">
+              <div className="text-3xl font-bold text-white mb-2 group-hover:text-gray-400 transition-colors">
+                24/7
+              </div>
+              <div className="text-gray-400 text-sm flex items-center justify-center gap-1">
+                <Zap className="w-4 h-4" />
+                Support
+              </div>
+            </div>
+            <div className="text-center group">
+              <div className="text-3xl font-bold text-white mb-2 group-hover:text-gray-400 transition-colors">
+                FREE
+              </div>
+              <div className="text-gray-400 text-sm flex items-center justify-center gap-1">
+                <Target className="w-4 h-4" />
+                Consultation
+              </div>
+            </div>
+            <div className="text-center group">
+              <div className="text-3xl font-bold text-white mb-2 group-hover:text-gray-400 transition-colors">
+                100%
+              </div>
+              <div className="text-gray-400 text-sm flex items-center justify-center gap-1">
+                <Star className="w-4 h-4" />
+                Satisfaction
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <section id="contact-form" className="py-24 bg-black">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8">
+              Start Your <span className=" text-[#4ab9a9]">Project</span>
+            </h2>
+            <p className="text-xl text-gray-300 leading-relaxed">
+              Tell us about your project and we&apos;ll get back to you within 2 hours
+            </p>
+          </div>
+
           {submitted ? (
             <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-12 text-center">
               <CheckCircle className="w-20 h-20 text-white mx-auto mb-8" />
@@ -355,11 +447,11 @@ export default function ContactPage() {
               </div>
             </div>
           ) : (
-            <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-8">
+            <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-12">
               <form onSubmit={handleSubmit}>
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-white font-semibold text-sm mb-2">
+                    <label className="block text-white font-semibold text-lg mb-4">
                       Full Name *
                     </label>
                     <input
@@ -368,13 +460,13 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none transition-all"
+                      className="w-full bg-black border border-gray-700 rounded-xl px-6 py-4 text-white text-lg placeholder-gray-400 focus:border-white focus:outline-none transition-all"
                       placeholder="Enter your full name"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-white font-semibold text-sm mb-2">
+                    <label className="block text-white font-semibold text-lg mb-4">
                       Email Address *
                     </label>
                     <input
@@ -383,13 +475,13 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none transition-all"
+                      className="w-full bg-black border border-gray-700 rounded-xl px-6 py-4 text-white text-lg placeholder-gray-400 focus:border-white focus:outline-none transition-all"
                       placeholder="your@email.com"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-white font-semibold text-sm mb-2">
+                    <label className="block text-white font-semibold text-lg mb-4">
                       Phone Number *
                     </label>
                     <input
@@ -398,13 +490,13 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none transition-all"
+                      className="w-full bg-black border border-gray-700 rounded-xl px-6 py-4 text-white text-lg placeholder-gray-400 focus:border-white focus:outline-none transition-all"
                       placeholder="+91 XXXXX XXXXX"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-white font-semibold text-sm mb-2">
+                    <label className="block text-white font-semibold text-lg mb-4">
                       Company Name
                     </label>
                     <input
@@ -412,13 +504,13 @@ export default function ContactPage() {
                       name="company"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none transition-all"
+                      className="w-full bg-black border border-gray-700 rounded-xl px-6 py-4 text-white text-lg placeholder-gray-400 focus:border-white focus:outline-none transition-all"
                       placeholder="Your company name"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-white font-semibold text-sm mb-2">
+                    <label className="block text-white font-semibold text-lg mb-4">
                       Service Interested In *
                     </label>
                     <select
@@ -426,7 +518,7 @@ export default function ContactPage() {
                       value={formData.service}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-white focus:outline-none transition-all"
+                      className="w-full bg-black border border-gray-700 rounded-xl px-6 py-4 text-white text-lg focus:border-white focus:outline-none transition-all"
                     >
                       <option value="">Select a service</option>
                       {services.map((service, index) => (
@@ -436,16 +528,16 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-white font-semibold text-sm mb-2">
-                      Estimated Budget
+                    <label className="block text-white font-semibold text-lg mb-4">
+                      Estimated Cost
                     </label>
                     <select
                       name="budget"
                       value={formData.budget}
                       onChange={handleInputChange}
-                      className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-white focus:outline-none transition-all"
+                      className="w-full bg-black border border-gray-700 rounded-xl px-6 py-4 text-white text-lg focus:border-white focus:outline-none transition-all"
                     >
-                      <option value="">Select Estimated Budget</option>
+                      <option value="">Select Estimated Cost</option>
                       {budgetRanges.map((budget, index) => (
                         <option key={index} value={budget}>{budget}</option>
                       ))}
@@ -453,14 +545,14 @@ export default function ContactPage() {
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block text-white font-semibold text-sm mb-2">
+                    <label className="block text-white font-semibold text-lg mb-4">
                       Project Timeline
                     </label>
                     <select
                       name="timeline"
                       value={formData.timeline}
                       onChange={handleInputChange}
-                      className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-white focus:outline-none transition-all"
+                      className="w-full bg-black border border-gray-700 rounded-xl px-6 py-4 text-white text-lg focus:border-white focus:outline-none transition-all"
                     >
                       <option value="">Select timeline</option>
                       {timelines.map((timeline, index) => (
@@ -470,7 +562,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block text-white font-semibold text-sm mb-2">
+                    <label className="block text-white font-semibold text-lg mb-4">
                       Project Details *
                     </label>
                     <textarea
@@ -478,18 +570,18 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={handleInputChange}
                       required
-                      rows={4}
-                      className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none transition-all resize-vertical"
+                      rows={6}
+                      className="w-full bg-black border border-gray-700 rounded-xl px-6 py-4 text-white text-lg placeholder-gray-400 focus:border-white focus:outline-none transition-all resize-vertical"
                       placeholder="Tell us about your project, goals, and any specific requirements..."
                     ></textarea>
                   </div>
                 </div>
 
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <div className="mt-12 flex flex-col sm:flex-row gap-6">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex-1 bg-white text-black px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-gray-200 disabled:bg-gray-600 disabled:text-gray-300 flex items-center justify-center gap-3 group"
+                    className="flex-1 bg-white text-black px-10 py-5 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-gray-200 disabled:bg-gray-600 disabled:text-gray-300 flex items-center justify-center gap-3 group"
                   >
                     {isSubmitting ? (
                       <>
@@ -508,14 +600,14 @@ export default function ContactPage() {
                     href="https://wa.me/919867787160"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border border-white text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-white hover:text-black flex items-center justify-center gap-3"
+                    className="border border-white text-white px-10 py-5 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-white hover:text-black flex items-center justify-center gap-3"
                   >
                     <MessageCircle className="w-5 h-5" />
                     Quick WhatsApp
                   </Link>
                 </div>
 
-                <p className="text-gray-400 text-center mt-6 text-sm">
+                <p className="text-gray-400 text-center mt-8 text-lg">
                   🔒 Your information is safe and secure. We&apos;ll never share your details.
                 </p>
               </form>

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "ZyFlux",
     images: [
       {
-        url: "https://www.zyflux.in/og-image.jpg", // Replace with your OG image path
+        url: "https://www.zyflux.in/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "ZyFlux Open Graph Image",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ZyFlux – Smart Tech & AI Solutions",
     description: "AI, Web, Mobile, UI/UX — All under one roof at ZyFlux.",
-    creator: "@zyflux", // Replace with your actual Twitter handle
+    creator: "@zyflux",
     images: ["https://www.zyflux.in/og-image.jpg"],
   },
 };
@@ -61,7 +61,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#4ab9a9" />
 
-        {/* Structured Data for Google */}
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -79,7 +79,35 @@ export default function RootLayout({
             }),
           }}
         />
+
+        {/* ------------ META PIXEL CODE ------------- */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '886943537093460');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=886943537093460&ev=PageView&noscript=1"
+          />
+        </noscript>
+        {/* ------------------------------------------ */}
       </head>
+
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
         {children}

@@ -68,7 +68,7 @@ const socials = [
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
               <li><Link href="mailto:team@zyflux.com" className="hover:text-white transition-colors">team@zyflux.com</Link></li>
-              <li><Link href="tel:+919867787160" className="hover:text-white transition-colors">+91 9867787160 / +44 75545 39838</Link></li>
+              <li><Link href="tel:+917021309381" className="hover:text-white transition-colors">+91 7021309381</Link></li>
               <li>H-3/1001 Valley Shilp CHS Kharghar Sec-36 Navi Mumbai 410210</li>
             </ul>
           </div>
