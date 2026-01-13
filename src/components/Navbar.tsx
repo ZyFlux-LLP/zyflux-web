@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import {X, Calendar, Home, Briefcase, FolderOpen, User, Phone } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { X, Calendar, Home, Briefcase, FolderOpen, User, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -33,10 +33,10 @@ declare global {
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [scrollY, setScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCalendlyLoaded, setIsCalendlyLoaded] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   const CALENDLY_URL = "https://cal.com/zyflux/30min";
 
@@ -50,17 +50,13 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    
-    handleResize();
+
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
     };
-  }, [isMobile]);
+  }, []);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -101,18 +97,29 @@ export default function Navbar() {
     }
   };
 
+  // Handle navigation with scroll to top
+  const handleNavigation = (href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    router.push(href);
+    // Scroll to top when navigating
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <>
       {/* Traditional navbar for larger screens */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 md:block hidden ${
-          scrollY > 50 ? "bg-black/90 backdrop-blur-lg border-b border-gray-800" : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 md:block hidden ${scrollY > 50 ? "bg-black/90 backdrop-blur-lg border-b border-gray-800" : "bg-transparent"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0 flex items-center gap-2">
-              <Link href="/" className="flex items-center gap-2">
+              <Link
+                href="/"
+                className="flex items-center gap-2"
+                onClick={(e) => handleNavigation("/", e)}
+              >
                 <Image
                   src="/assets/logo3.png"
                   alt="ZyFlux Logo"
@@ -127,7 +134,7 @@ export default function Navbar() {
               </Link>
             </div>
 
-              <div className="flex items-center gap-8">
+            <div className="flex items-center gap-8">
               {/* Lamp-style navigation - centered */}
               <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-3 bg-white/5 border border-gray-700 backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
                 {navItems.map((item) => {
@@ -137,11 +144,11 @@ export default function Navbar() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className={`relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors ${
-                        isActive 
-                          ? "text-[#4ab9a9]" 
+                      onClick={(e) => handleNavigation(item.href, e)}
+                      className={`relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors ${isActive
+                          ? "text-[#4ab9a9]"
                           : "text-gray-300 hover:text-[#4ab9a9]"
-                      }`}
+                        }`}
                     >
                       <span>{item.name}</span>
                       {isActive && (
@@ -191,11 +198,11 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`relative cursor-pointer text-sm font-semibold px-3 py-3 rounded-full transition-colors ${
-                  isActive 
-                    ? "text-[#4ab9a9]" 
+                onClick={(e) => handleNavigation(item.href, e)}
+                className={`relative cursor-pointer text-sm font-semibold px-3 py-3 rounded-full transition-colors ${isActive
+                    ? "text-[#4ab9a9]"
                     : "text-gray-300 hover:text-[#4ab9a9]"
-                }`}
+                  }`}
               >
                 <Icon size={16} strokeWidth={2.5} />
                 {isActive && (
@@ -219,7 +226,7 @@ export default function Navbar() {
               </Link>
             );
           })}
-          
+
           {/* Schedule button integrated in the same bar */}
           <button
             onClick={handleScheduleMeeting}
@@ -242,18 +249,21 @@ export default function Navbar() {
             >
               <X className="w-6 h-6" />
             </button>
-            
+
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className="text-2xl font-medium text-gray-300 hover:text-white transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  handleNavigation(item.href, e);
+                  setIsMenuOpen(false);
+                }}
               >
                 {item.name}
               </Link>
             ))}
-            
+
             <button
               onClick={() => {
                 handleScheduleMeeting();

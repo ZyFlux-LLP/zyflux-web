@@ -237,10 +237,10 @@ export default function ContactPage() {
   ];
 
   const budgetRanges: string[] = [
-    "₹500 - ₹1000",
-    "₹1000 - ₹5000",
-    "₹5000 - ₹10000",
-    "₹10000+",
+    "₹10k - ₹30k",
+    "₹30k - ₹70k",
+    "₹70k - ₹1.5L",
+    "₹1.5L+",
     "Let's discuss"
   ];
   

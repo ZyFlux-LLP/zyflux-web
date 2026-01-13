@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
+import MetaPixelTracker from "@/components/MetaPixelTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,12 +18,14 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "ZyFlux – Smart Tech & AI Solutions",
-  description: "ZyFlux delivers innovative solutions in AI, Web Development, Mobile Apps, and UI/UX design.",
+  description:
+    "ZyFlux delivers innovative solutions in AI, Web Development, Mobile Apps, and UI/UX design.",
   keywords: ["ZyFlux", "AI", "Smart Tech", "Web Development", "UI UX", "Mobile App"],
   metadataBase: new URL("https://www.zyflux.in"),
   openGraph: {
     title: "ZyFlux – Smart Tech & AI Solutions",
-    description: "Explore AI-powered digital services from ZyFlux including web, mobile, and design.",
+    description:
+      "Explore AI-powered digital services from ZyFlux including web, mobile, and design.",
     url: "https://www.zyflux.in",
     siteName: "ZyFlux",
     images: [
@@ -92,18 +95,33 @@ export default function RootLayout({
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
+
+              // Pixel 1
               fbq('init', '886943537093460');
+
+              // Pixel 2
+              fbq('init', '1544488779907774');
+
+              // Fire PageView for all initialised pixels
               fbq('track', 'PageView');
             `,
           }}
         />
         <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=886943537093460&ev=PageView&noscript=1"
-          />
+          <>
+            <img
+              height="1"
+              width="1"
+              style={{ display: "none" }}
+              src="https://www.facebook.com/tr?id=886943537093460&ev=PageView&noscript=1"
+            />
+            <img
+              height="1"
+              width="1"
+              style={{ display: "none" }}
+              src="https://www.facebook.com/tr?id=1544488779907774&ev=PageView&noscript=1"
+            />
+          </>
         </noscript>
         {/* ------------------------------------------ */}
       </head>
@@ -112,6 +130,8 @@ export default function RootLayout({
         <Navbar />
         {children}
         <CTASection />
+        {/* Tracks route-change pageviews – make sure it only calls fbq('track', 'PageView') */}
+        <MetaPixelTracker />
         <Footer />
       </body>
     </html>
