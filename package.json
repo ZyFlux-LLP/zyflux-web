@@ -10,10 +10,10 @@
     "export": "next export"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@radix-ui/react-avatar": "^1.1.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "emailjs-com": "^3.2.0",
     "framer-motion": "^12.16.0",
     "lucide-react": "^0.511.0",
     "motion": "^12.15.0",
