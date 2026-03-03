@@ -576,6 +576,7 @@ export default function ZyFluxHomePage() {
                     >
                       <source src={service.videoSrc} type="video/webm" />
                       {/* Fallback image if video fails to load */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={service.image}
                         alt={service.title}

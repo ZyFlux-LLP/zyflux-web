@@ -109,15 +109,19 @@ export default function RootLayout({
         />
         <noscript>
           <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               height="1"
               width="1"
+              alt=""
               style={{ display: "none" }}
               src="https://www.facebook.com/tr?id=886943537093460&ev=PageView&noscript=1"
             />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               height="1"
               width="1"
+              alt=""
               style={{ display: "none" }}
               src="https://www.facebook.com/tr?id=1544488779907774&ev=PageView&noscript=1"
             />
