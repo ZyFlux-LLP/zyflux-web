@@ -124,36 +124,20 @@ export default function RootLayout({
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
 
-              // Pixel 1
               fbq('init', '886943537093460');
-
-              // Pixel 2
-              fbq('init', '1544488779907774');
-
-              // Fire PageView for all initialised pixels
               fbq('track', 'PageView');
             `,
           }}
         />
         <noscript>
-          <>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              height="1"
-              width="1"
-              alt=""
-              style={{ display: "none" }}
-              src="https://www.facebook.com/tr?id=886943537093460&ev=PageView&noscript=1"
-            />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              height="1"
-              width="1"
-              alt=""
-              style={{ display: "none" }}
-              src="https://www.facebook.com/tr?id=1544488779907774&ev=PageView&noscript=1"
-            />
-          </>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            alt=""
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=886943537093460&ev=PageView&noscript=1"
+          />
         </noscript>
         {/* ------------------------------------------ */}
       </head>
