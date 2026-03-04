@@ -26,17 +26,18 @@ export default function MetaPixelTracker() {
       // This avoids TypeScript IIFE parameter-redeclaration bugs and is
       // the most reliable way to get the pixel detected by Meta Pixel Helper.
       const script = document.createElement("script");
+      // Fire init + PageView inside fbevents.js onload so the events
+      // hit the REAL fbq implementation and are sent to Facebook immediately —
+      // rather than sitting in the pre-load queue when Meta Pixel Helper checks.
       script.textContent = `
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
         if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window,document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init','${PIXEL_ID}');
-        fbq('track','PageView');
+        n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+        t.onload=function(){fbq('init','${PIXEL_ID}');fbq('track','PageView');};
+        s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+        (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
       `;
       document.head.appendChild(script);
       return;
