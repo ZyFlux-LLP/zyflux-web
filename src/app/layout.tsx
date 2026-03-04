@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -110,9 +111,19 @@ export default function RootLayout({
             }),
           }}
         />
+      </head>
 
-        {/* ------------ META PIXEL CODE ------------- */}
-        <script
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Navbar />
+        {children}
+        <CTASection />
+        <MetaPixelTracker />
+        <Footer />
+
+        {/* Meta Pixel — loaded via next/script so it actually executes in App Router */}
+        <Script
+          id="meta-pixel"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -123,12 +134,12 @@ export default function RootLayout({
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-
               fbq('init', '886943537093460');
               fbq('track', 'PageView');
             `,
           }}
         />
+        {/* noscript fallback */}
         <noscript>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -139,16 +150,6 @@ export default function RootLayout({
             src="https://www.facebook.com/tr?id=886943537093460&ev=PageView&noscript=1"
           />
         </noscript>
-        {/* ------------------------------------------ */}
-      </head>
-
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <CTASection />
-        {/* Tracks route-change pageviews – make sure it only calls fbq('track', 'PageView') */}
-        <MetaPixelTracker />
-        <Footer />
       </body>
     </html>
   );
