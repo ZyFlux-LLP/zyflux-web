@@ -17,23 +17,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ZyFlux – Smart Tech & AI Solutions",
+  title: "ZyFlux – AI & Smart Tech Solutions | Web, App & AI Development",
   description:
-    "ZyFlux delivers innovative solutions in AI, Web Development, Mobile Apps, and UI/UX design.",
-  keywords: ["ZyFlux", "AI", "Smart Tech", "Web Development", "UI UX", "Mobile App"],
-  metadataBase: new URL("https://www.zyflux.in"),
+    "ZyFlux partners with ambitious businesses to accelerate growth through AI, web development, mobile apps, and UI/UX design. Based in Navi Mumbai. Book a free consultation.",
+  keywords: ["ZyFlux", "AI Solutions", "Smart Tech", "Web Development", "App Development", "UI UX", "Mobile App", "Digital Marketing", "Navi Mumbai"],
+  metadataBase: new URL("https://zyflux.com"),
+  alternates: {
+    canonical: "https://zyflux.com",
+  },
   openGraph: {
-    title: "ZyFlux – Smart Tech & AI Solutions",
+    title: "ZyFlux – AI & Smart Tech Solutions | Web, App & AI Development",
     description:
-      "Explore AI-powered digital services from ZyFlux including web, mobile, and design.",
-    url: "https://www.zyflux.in",
+      "ZyFlux partners with ambitious businesses to accelerate growth through AI, web development, mobile apps, and UI/UX design. Based in Navi Mumbai.",
+    url: "https://zyflux.com",
     siteName: "ZyFlux",
     images: [
       {
-        url: "https://www.zyflux.in/og-image.jpg",
+        url: "/assets/logo3.png",
         width: 1200,
         height: 630,
-        alt: "ZyFlux Open Graph Image",
+        alt: "ZyFlux – AI & Smart Tech Solutions",
       },
     ],
     locale: "en_US",
@@ -41,10 +44,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZyFlux – Smart Tech & AI Solutions",
-    description: "AI, Web, Mobile, UI/UX — All under one roof at ZyFlux.",
-    creator: "@zyflux",
-    images: ["https://www.zyflux.in/og-image.jpg"],
+    title: "ZyFlux – AI & Smart Tech Solutions | Web, App & AI Development",
+    description: "AI, Web, Mobile, UI/UX — All under one roof at ZyFlux. Based in Navi Mumbai.",
+    creator: "@zyflux_com",
+    images: ["/assets/logo3.png"],
   },
 };
 
@@ -70,14 +73,39 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "ZyFlux",
-              url: "https://www.zyflux.in/",
-              logo: "https://www.zyflux.in/logo.png",
-              sameAs: [
-                "https://www.linkedin.com/company/zyflux",
-                "https://twitter.com/zyflux_com",
-                "https://instagram.com/zyflux_com",
+              "@graph": [
+                {
+                  "@type": ["Organization", "LocalBusiness"],
+                  "@id": "https://zyflux.com/#organization",
+                  name: "ZyFlux",
+                  url: "https://zyflux.com",
+                  logo: {
+                    "@type": "ImageObject",
+                    url: "https://zyflux.com/assets/logo3.png",
+                  },
+                  description: "AI, web, mobile & digital marketing agency based in Navi Mumbai.",
+                  email: "team@zyflux.com",
+                  telephone: "+917021309381",
+                  address: {
+                    "@type": "PostalAddress",
+                    streetAddress: "H-3/1001 Valley Shilp CHS, Kharghar Sec-36",
+                    addressLocality: "Navi Mumbai",
+                    postalCode: "410210",
+                    addressCountry: "IN",
+                  },
+                  sameAs: [
+                    "https://www.linkedin.com/company/zyflux",
+                    "https://twitter.com/zyflux_com",
+                    "https://instagram.com/zyflux_com",
+                  ],
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://zyflux.com/#website",
+                  url: "https://zyflux.com",
+                  name: "ZyFlux",
+                  publisher: { "@id": "https://zyflux.com/#organization" },
+                },
               ],
             }),
           }}

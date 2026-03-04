@@ -326,9 +326,10 @@ export default function ZyFluxHomePage() {
           <div className="animate-fade-in-up">
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="block text-white">Revolutionizing your </span>
-              <span className="block text-white">business with</span>
-              <span className="block">
+              <span className="sr-only">Smart Tech &amp; AI Solutions for Your Business</span>
+              <span aria-hidden="true" className="block text-white">Revolutionizing your </span>
+              <span aria-hidden="true" className="block text-white">business with</span>
+              <span aria-hidden="true" className="block">
                 <AnimatedTextCycle
                   words={[
                     "SMART TECH",
@@ -343,7 +344,7 @@ export default function ZyFluxHomePage() {
                   className="text-[#4ab9a9] font-semibold"
                 />
               </span>
-              <span className="block text-white">Solutions</span>
+              <span aria-hidden="true" className="block text-white">Solutions</span>
             </h1>
 
             <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">

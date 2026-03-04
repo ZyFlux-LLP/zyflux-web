@@ -538,7 +538,7 @@ export default function ProjectsPage() {
           </h1>
 
           <p className="text-xl sm:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Discover how we&apos;sve transformed businesses through innovative digital solutions,
+            Discover how we&apos;ve transformed businesses through innovative digital solutions,
             strategic development, and cutting-edge technology implementations.
           </p>
 

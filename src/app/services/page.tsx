@@ -168,9 +168,10 @@ export default function ServicesPage() {
 
         <div className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
-            <span className="block text-white">Business</span>
-            <span className="block text-[#4ab9a9]">Development</span>
-            <span className="block text-white">Excellence</span>
+            <span className="sr-only">Web, App, AI &amp; Digital Marketing Services by ZyFlux</span>
+            <span aria-hidden="true" className="block text-white">Business</span>
+            <span aria-hidden="true" className="block text-[#4ab9a9]">Development</span>
+            <span aria-hidden="true" className="block text-white">Excellence</span>
           </h1>
 
           <p className="text-xl sm:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">

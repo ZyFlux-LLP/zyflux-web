@@ -1,0 +1,18 @@
+# ZyFlux – AI & Smart Tech Agency
+
+Organization: ZyFlux
+Website: https://zyflux.com
+Description: ZyFlux is a Navi Mumbai-based tech agency specializing in AI
+solutions, web development, Flutter mobile apps, UI/UX design, and digital
+marketing for startups and enterprises.
+
+Services:
+- Web Development (HTML, CSS, JS, WordPress, Wix)
+- App Development (Flutter, FlutterFlow, Dart)
+- AI/ML Solutions (Python, TensorFlow, PyTorch)
+- UI/UX Design (Figma, Adobe XD)
+- Digital Marketing (SEO, Google Ads, Meta Ads)
+- Graphics & Multimedia (Adobe Creative Suite)
+
+Contact: team@zyflux.com | +91 7021309381
+Location: Navi Mumbai, India
