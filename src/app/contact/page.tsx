@@ -1,5 +1,6 @@
 'use client';
 import emailjs from '@emailjs/browser';
+import { generateEventId, getMetaCookies, sendMetaCAPIEvent } from '@/lib/meta-capi';
 import { ChevronDown, Twitter } from "lucide-react";
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import {
@@ -75,11 +76,31 @@ export default function ContactPage() {
 
     try {
       await emailjs.send(
-        'service_zs4a6ew',     // 👉 Replace with your actual EmailJS service ID
-        'template_zkhc4v8',    // 👉 Replace with your actual EmailJS template ID
+        'service_afnw3ff',
+        'template_j3v839q',
         templateParams,
-        '2EUKFVDaeA-npvkX2'      // 👉 Replace with your actual EmailJS public key
+        'vg_MqK4oTK8E_GpC3'
       );
+
+      // Fire Lead event: browser pixel + server-side CAPI (deduplicated)
+      const leadEventId = generateEventId();
+      const cookies = getMetaCookies();
+      if (typeof window !== 'undefined' && typeof (window as Window & { fbq?: (...args: unknown[]) => void }).fbq === 'function') {
+        (window as Window & { fbq: (...args: unknown[]) => void }).fbq('track', 'Lead', {}, { eventID: leadEventId });
+      }
+      sendMetaCAPIEvent({
+        event_name: 'Lead',
+        event_id: leadEventId,
+        user_data: {
+          ...cookies,
+          em: formData.email || undefined,
+          ph: formData.phone || undefined,
+        },
+        custom_data: {
+          ...(formData.service && { content_category: formData.service }),
+          ...(formData.budget && { value: formData.budget }),
+        },
+      });
 
       setSubmitted(true);
       setFormData({
