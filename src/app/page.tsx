@@ -66,23 +66,10 @@ export default function Home() {
               <p>We design, build, and ship digital products — ERP, CRM, ecommerce, apps, and digital marketing — for teams that care about craft and velocity.</p>
               <div className="hero-cta">
                 <CalButton className="btn btn-primary magnetic">
-                  Schedule a meeting
+                  Schedule a call
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M7 17L17 7M10 7h7v7" /></svg>
                 </CalButton>
                 <Link href="/projects" className="btn btn-ghost">See our work</Link>
-              </div>
-              <div className="hero-ticker">
-                <div className="label">Live</div>
-                <div className="stream">
-                  <div className="stream-inner">
-                    <span>› deploy · ledger-ui <em className="up" style={{ fontStyle: 'normal' }}>+2.4%</em></span>
-                    <span>› build · atlas-agent <em className="up" style={{ fontStyle: 'normal' }}>ok</em></span>
-                    <span>› release · routewise v4.2</span>
-                    <span>› ship · pulse-intake <em className="up" style={{ fontStyle: 'normal' }}>+14%</em></span>
-                    <span>› commit · civic-portal</span>
-                    <span>› deploy · ledger-ui <em className="up" style={{ fontStyle: 'normal' }}>+2.4%</em></span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -360,7 +347,7 @@ export default function Home() {
             <h2>Have a product in mind?<br />Let&apos;s get into the flow.</h2>
             <p>Typical engagements start within two weeks. Tell us the shape of the problem — we&apos;ll send back a plan.</p>
             <CalButton className="btn btn-primary magnetic">
-              Schedule a meeting
+              Schedule a call
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M7 17L17 7M10 7h7v7" /></svg>
             </CalButton>
           </div>
