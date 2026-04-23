@@ -309,35 +309,35 @@ export default function Home() {
           </div>
           <div className="showcase-grid reveal-stagger">
             <Link href="/projects" className="showcase-card">
-              <div className="showcase-thumb thumb-1" />
+              <div className="showcase-thumb t-dainik" />
               <div className="showcase-body">
-                <div className="showcase-meta"><span>Fintech · 2025</span><span>↗</span></div>
-                <h3>Ledger — treasury dashboard</h3>
-                <p>Real-time cash position across 14 banks and 6 currencies for a $400M fintech.</p>
+                <div className="showcase-meta"><span>Media & Publishing · 2024</span><span>↗</span></div>
+                <h3>Dainik Nirnayak CMS — newspaper production platform</h3>
+                <p>Digitized the entire newspaper production and ad billing workflow — editorial uploads, real-time approvals, PDF generation, and GST invoicing in one dashboard.</p>
               </div>
             </Link>
             <Link href="/projects" className="showcase-card">
-              <div className="showcase-thumb thumb-2" />
+              <div className="showcase-thumb t-misscall" />
               <div className="showcase-body">
-                <div className="showcase-meta"><span>AI platform · 2025</span><span>↗</span></div>
-                <h3>Atlas — knowledge agent</h3>
-                <p>Company-wide RAG search trained on 40k docs, embedded in Slack and the intranet.</p>
+                <div className="showcase-meta"><span>Fintech · 2019</span><span>↗</span></div>
+                <h3>MissCallPay — cashless payment for rural India</h3>
+                <p>Full payment backend enabling digital transactions via a simple missed call — no smartphone or internet needed. MahaStartupWeek 2019 award winner.</p>
               </div>
             </Link>
             <Link href="/projects" className="showcase-card">
-              <div className="showcase-thumb thumb-3" />
+              <div className="showcase-thumb t-food" />
               <div className="showcase-body">
-                <div className="showcase-meta"><span>Logistics · 2024</span><span>↗</span></div>
-                <h3>Routewise — fleet ops</h3>
-                <p>Dispatch console and driver app serving 1,200 trucks across three regions.</p>
+                <div className="showcase-meta"><span>Food Delivery · 2024</span><span>↗</span></div>
+                <h3>Namma Pondy — hyperlocal food delivery</h3>
+                <p>Three-role delivery platform connecting Pondicherry users with home chefs and restaurants. 30K+ orders delivered across 120+ vendors.</p>
               </div>
             </Link>
             <Link href="/projects" className="showcase-card">
-              <div className="showcase-thumb thumb-4" />
+              <div className="showcase-thumb t-sailing" />
               <div className="showcase-body">
-                <div className="showcase-meta"><span>Health · 2024</span><span>↗</span></div>
-                <h3>Pulse — clinical intake</h3>
-                <p>HIPAA-ready intake flow cutting new-patient onboarding from 22 min to 4.</p>
+                <div className="showcase-meta"><span>Sports & Sailing · 2025</span><span>↗</span></div>
+                <h3>Mumbai Meridians — ISL sailing franchise</h3>
+                <p>Multi-page website for India&apos;s ISL 2026 sailing franchise with live event countdown, junior academy enrollment, and team roster.</p>
               </div>
             </Link>
           </div>

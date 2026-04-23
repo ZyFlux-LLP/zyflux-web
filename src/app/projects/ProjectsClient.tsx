@@ -123,6 +123,16 @@ const projects: {
     tags: ['Flutter', 'FlutterFlow', 'Firebase', 'Payments'],
     stats: [{ n: '40K+', l: 'Bookings' }, { n: '300+', l: 'Hotel partners' }, { n: '2.5min', l: 'Avg booking time' }],
   },
+  {
+    id: 13, cat: 'web' as Category, size: 'lg',
+    meta: '13 · Media & Publishing · Live', client: 'Dainik Nirnayak',
+    thumb: 't-dainik',
+    title: 'Dainik Nirnayak CMS — newspaper production platform',
+    desc: 'Digitized the entire newspaper production and advertisement billing workflow with a custom web-based application. Centralized editorial uploads, real-time approval flows, PDF generation, client billing, and GST-based invoicing into a single dashboard.',
+    tags: ['Web App', 'CMS', 'Editorial Workflow', 'PDF Generation', 'GST Invoicing', 'Dashboard'],
+    stats: null,
+    url: 'https://nirnayaknews.com/',
+  },
 ]
 
 const filters: { label: string; value: Category }[] = [
@@ -150,7 +160,7 @@ export default function ProjectsClient() {
             {f.label}
           </button>
         ))}
-        <span className="filter-count">{visible.length}&nbsp;/ 12 RESULTS</span>
+        <span className="filter-count">{visible.length}&nbsp;/ 13 RESULTS</span>
       </div>
 
       <div className="project-grid">

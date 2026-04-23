@@ -583,6 +583,10 @@ section { padding: 120px 0; position: relative; }
 .t-steel::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, var(--line-soft) 0px, var(--line-soft) 1px, transparent 1px, transparent 40px), repeating-linear-gradient(0deg, var(--line-soft) 0px, var(--line-soft) 1px, transparent 1px, transparent 40px); mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 75%); }
 .t-steel::after { content: '⬜ engineer · build · deliver'; position: absolute; bottom: 18px; right: 22px; font-family: var(--font-mono); font-size: 10px; color: oklch(1 0 0 / 0.45); letter-spacing: 0.1em; }
 
+.t-dainik { background: linear-gradient(135deg, oklch(0.17 0.04 45), oklch(0.13 0.015 30)); }
+.t-dainik::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, var(--line-soft) 0px, var(--line-soft) 1px, transparent 1px, transparent 22px), radial-gradient(ellipse at 75% 30%, oklch(0.72 0.18 55 / 0.28), transparent 55%); }
+.t-dainik::after { content: '📰 upload · approve · publish'; position: absolute; bottom: 18px; left: 22px; font-family: var(--font-mono); font-size: 10px; color: oklch(0.78 0.17 55 / 0.85); letter-spacing: 0.1em; }
+
 .p-live-link { display: inline-block; margin-top: 18px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; border-bottom: 1px solid var(--line-soft); padding-bottom: 2px; transition: color .25s var(--ease), border-color .25s var(--ease); }
 .p-live-link:hover { color: var(--ink); border-color: var(--ink); }
 
