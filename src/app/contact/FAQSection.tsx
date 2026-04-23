@@ -1,11 +1,6 @@
 'use client'
 
-import { useRef, useState, useCallback } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useGSAP } from '@gsap/react'
-
-gsap.registerPlugin(ScrollTrigger, useGSAP)
+import { useState } from 'react'
 
 const faqs = [
   {
@@ -31,93 +26,29 @@ const faqs = [
 ]
 
 export default function FAQSection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const headingRef = useRef<HTMLDivElement>(null)
-  const itemsRef = useRef<HTMLDivElement>(null)
   const [openIndex, setOpenIndex] = useState<number | null>(0)
-  const answerRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  // Entrance animations
-  useGSAP(() => {
-    const heading = headingRef.current
-    const items = itemsRef.current
-    if (!heading || !items) return
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 78%',
-        once: true,
-      },
-    })
-
-    // Eyebrow + heading slide from left
-    tl.fromTo(
-      heading.querySelectorAll('.faq-eyebrow, .faq-heading'),
-      { x: -40, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.9, ease: 'power3.out', stagger: 0.15 },
-      0
-    )
-
-    // Items stagger up from right side
-    tl.fromTo(
-      Array.from(items.children),
-      { y: 32, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.65, ease: 'power3.out', stagger: 0.1 },
-      0.2
-    )
-  }, { scope: sectionRef })
-
-  const toggle = useCallback((i: number) => {
-    const isOpen = openIndex === i
-    const closing = answerRefs.current[openIndex ?? -1]
-    const opening = answerRefs.current[i]
-
-    // Close currently open item
-    if (closing && openIndex !== null) {
-      gsap.to(closing, { height: 0, opacity: 0, duration: 0.32, ease: 'power2.inOut' })
-    }
-
-    if (isOpen) {
-      setOpenIndex(null)
-    } else {
-      // Open new item
-      if (opening) {
-        gsap.fromTo(
-          opening,
-          { height: 0, opacity: 0 },
-          { height: 'auto', opacity: 1, duration: 0.4, ease: 'power2.out' }
-        )
-      }
-      setOpenIndex(i)
-    }
-  }, [openIndex])
 
   return (
-    <section className="faq" ref={sectionRef}>
+    <section className="faq">
       <div className="container">
         <div className="faq-grid">
-          <div ref={headingRef}>
-            <div className="eyebrow faq-eyebrow" style={{ marginBottom: 22 }}>FAQ</div>
-            <h2 className="faq-heading">Quick answers<br />before you write.</h2>
+          <div className="reveal">
+            <div className="eyebrow" style={{ marginBottom: 22 }}>FAQ</div>
+            <h2>Quick answers<br />before you write.</h2>
           </div>
 
-          <div ref={itemsRef}>
+          <div className="reveal-stagger">
             {faqs.map((item, i) => (
               <div key={i} className={`faq-item${openIndex === i ? ' open' : ''}`}>
                 <button
                   className="faq-summary"
-                  onClick={() => toggle(i)}
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   aria-expanded={openIndex === i}
                 >
                   <span>{item.q}</span>
                   <span className="plus">+</span>
                 </button>
-                <div
-                  className="faq-answer"
-                  ref={(el) => { answerRefs.current[i] = el }}
-                  style={{ height: i === 0 ? 'auto' : 0, opacity: i === 0 ? 1 : 0, overflow: 'hidden' }}
-                >
+                <div className="faq-answer">
                   <p>{item.a}</p>
                 </div>
               </div>
