@@ -2,6 +2,14 @@ import type { Metadata } from 'next'
 import ContactForm from './ContactForm'
 import FAQSection from './FAQSection'
 
+function SocialArrow() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 17L17 7" /><path d="M10 7h7v7" />
+    </svg>
+  )
+}
+
 export const metadata: Metadata = {
   title: 'Contact — Zyflux',
   description: 'Tell us about the product. We\'ll send back a plan.',
@@ -52,10 +60,10 @@ export default function ContactPage() {
               <div className="info-block">
                 <h4>Socials</h4>
                 <div className="big" style={{ fontSize: 17, display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  <a href="#">LinkedIn ↗</a>
-                  <a href="#">GitHub ↗</a>
-                  <a href="#">Twitter ↗</a>
-                  <a href="#">Dribbble ↗</a>
+                  <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>LinkedIn <SocialArrow /></a>
+                  <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>GitHub <SocialArrow /></a>
+                  <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>Twitter <SocialArrow /></a>
+                  <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>Dribbble <SocialArrow /></a>
                 </div>
               </div>
             </aside>
