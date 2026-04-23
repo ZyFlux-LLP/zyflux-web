@@ -407,6 +407,8 @@ section { padding: 120px 0; position: relative; }
 .showcase-thumb { aspect-ratio: 16 / 10; position: relative; overflow: hidden; border-bottom: 1px solid var(--line-soft); }
 .showcase-body { padding: 26px 28px 30px; }
 .showcase-meta { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px; }
+.showcase-arrow { width: 16px; height: 16px; flex-shrink: 0; transition: transform .3s var(--ease); }
+.showcase-card:hover .showcase-arrow { transform: translate(2px, -2px); }
 .showcase-body h3 { font-size: 26px; margin-bottom: 10px; }
 .showcase-body p { font-size: 14.5px; }
 .thumb-1 { background: radial-gradient(circle at 70% 30%, oklch(0.6 0.22 260), transparent 50%), radial-gradient(circle at 20% 80%, oklch(0.65 0.2 320), transparent 50%), var(--bg-elev); }

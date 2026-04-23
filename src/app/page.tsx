@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: 'Zyflux — Engineering the flow of modern software',
 }
 
+function ArrowIcon() {
+  return (
+    <svg className="showcase-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 17L17 7" /><path d="M10 7h7v7" />
+    </svg>
+  )
+}
+
 function StarIcon() {
   return (
     <svg viewBox="0 0 24 24">
@@ -311,7 +319,7 @@ export default function Home() {
             <Link href="/projects" className="showcase-card">
               <div className="showcase-thumb t-dainik" />
               <div className="showcase-body">
-                <div className="showcase-meta"><span>Media & Publishing · 2024</span><span>↗</span></div>
+                <div className="showcase-meta"><span>Media & Publishing · 2024</span><ArrowIcon /></div>
                 <h3>Dainik Nirnayak CMS — newspaper production platform</h3>
                 <p>Digitized the entire newspaper production and ad billing workflow — editorial uploads, real-time approvals, PDF generation, and GST invoicing in one dashboard.</p>
               </div>
@@ -319,23 +327,23 @@ export default function Home() {
             <Link href="/projects" className="showcase-card">
               <div className="showcase-thumb t-misscall" />
               <div className="showcase-body">
-                <div className="showcase-meta"><span>Fintech · 2019</span><span>↗</span></div>
+                <div className="showcase-meta"><span>Fintech · 2019</span><ArrowIcon /></div>
                 <h3>MissCallPay — cashless payment for rural India</h3>
                 <p>Full payment backend enabling digital transactions via a simple missed call — no smartphone or internet needed. MahaStartupWeek 2019 award winner.</p>
               </div>
             </Link>
-            <Link href="/projects" className="showcase-card">
-              <div className="showcase-thumb t-food" />
+            <a href="https://www.zarajamesstudio.com/" target="_blank" rel="noopener noreferrer" className="showcase-card">
+              <div className="showcase-thumb t-interior" />
               <div className="showcase-body">
-                <div className="showcase-meta"><span>Food Delivery · 2024</span><span>↗</span></div>
-                <h3>Namma Pondy — hyperlocal food delivery</h3>
-                <p>Three-role delivery platform connecting Pondicherry users with home chefs and restaurants. 30K+ orders delivered across 120+ vendors.</p>
+                <div className="showcase-meta"><span>Interior Design · 2024</span><ArrowIcon /></div>
+                <h3>Zara James Studio — luxury interior design portfolio</h3>
+                <p>Bespoke portfolio for a Mumbai-based luxury residential interior design firm. Image-first case study layout with refined typography and dark-mode toggle.</p>
               </div>
-            </Link>
+            </a>
             <Link href="/projects" className="showcase-card">
               <div className="showcase-thumb t-sailing" />
               <div className="showcase-body">
-                <div className="showcase-meta"><span>Sports & Sailing · 2025</span><span>↗</span></div>
+                <div className="showcase-meta"><span>Sports & Sailing · 2025</span><ArrowIcon /></div>
                 <h3>Mumbai Meridians — ISL sailing franchise</h3>
                 <p>Multi-page website for India&apos;s ISL 2026 sailing franchise with live event countdown, junior academy enrollment, and team roster.</p>
               </div>
