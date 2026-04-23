@@ -64,7 +64,7 @@ export default function Nav() {
         { opacity: 0, y: -10, scale: 0.96 },
         { opacity: 1, y: 0, scale: 1, duration: 0.28, ease: 'power3.out' }
       )
-      gsap.fromTo(el.querySelectorAll('a'),
+      gsap.fromTo(el.querySelectorAll('a, button'),
         { opacity: 0, x: -10 },
         { opacity: 1, x: 0, duration: 0.22, ease: 'power3.out', stagger: 0.05, delay: 0.06 }
       )
@@ -95,8 +95,9 @@ export default function Nav() {
         <Link href="/projects" className={isActive('/projects') ? 'active' : ''}>Projects</Link>
         <Link href="/about" className={isActive('/about') ? 'active' : ''}>About</Link>
         <Link href="/contact" className={isActive('/contact') ? 'active' : ''}>Contact</Link>
+        <CalButton className="nav-cta nav-cta-mobile">Schedule a call</CalButton>
       </div>
-      <CalButton className="nav-cta">Schedule a meeting</CalButton>
+      <CalButton className="nav-cta">Schedule a call</CalButton>
       <button
         className="nav-burger"
         aria-label={open ? 'Close menu' : 'Open menu'}

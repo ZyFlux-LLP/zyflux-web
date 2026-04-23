@@ -46,7 +46,7 @@ export default function CalButton({ className, children }: CalButtonProps) {
     window.Cal('init', NAMESPACE, { origin: 'https://cal.com' })
     window.Cal.ns[NAMESPACE]('ui', {
       hideEventTypeDetails: false,
-      layout: 'month_view',
+      layout: 'week_view',
     })
   }, [])
 
@@ -56,7 +56,7 @@ export default function CalButton({ className, children }: CalButtonProps) {
       className={className}
       data-cal-link={CAL_LINK}
       data-cal-namespace={NAMESPACE}
-      data-cal-config='{"layout":"month_view"}'
+      data-cal-config='{"layout":"week_view"}'
     >
       {children}
     </button>
