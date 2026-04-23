@@ -17,12 +17,6 @@ const team = [
   { initials: 'IS', name: 'Ira S.', role: 'AI Engineering', color: 'p-h' },
 ]
 
-const timeline = [
-  { year: '2023', title: 'Founded', desc: 'Three co-founders, one office in Bengaluru, two paying clients in month one.', stat: 'Team 3 · Projects 04 · ARR ~ ₹1.2Cr' },
-  { year: '2024', title: 'First platform engagements', desc: 'Moved from one-off builds to multi-quarter platform work. Added the design systems and mobile practice.', stat: 'Team 8 · Projects 16 · ARR ~ ₹3.8Cr' },
-  { year: '2025', title: 'AI practice + EU presence', desc: 'Spun up the AI & agents practice. Opened a small operations hub in Berlin to serve EU clients in-timezone.', stat: 'Team 12 · Projects 29 · ARR ~ ₹7.4Cr' },
-  { year: '2026', title: 'Where we are now', desc: 'Fourteen people, 24 active engagements, and a waitlist we\'re trying hard to keep short.', stat: 'Team 14 · Projects 60+ · ARR — steady' },
-]
 
 export default function AboutPage() {
   return (
@@ -97,28 +91,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section>
-        <div className="container">
-          <div className="section-head reveal">
-            <div>
-              <div className="eyebrow" style={{ marginBottom: 22 }}>Timeline</div>
-              <h2>Three years,<br />one steady curve.</h2>
-            </div>
-            <p>No acquisitions, no pivots. A small studio growing carefully, one engagement at a time.</p>
-          </div>
-          <div className="timeline reveal-stagger">
-            {timeline.map((t) => (
-              <div key={t.year} className="timeline-item">
-                <div className="timeline-row">
-                  <div className="timeline-year">{t.year}</div>
-                  <div><h3>{t.title}</h3><p>{t.desc}</p></div>
-                  <div><p style={{ color: 'var(--ink-dim)', fontSize: 14 }}>{t.stat}</p></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
       <section>
