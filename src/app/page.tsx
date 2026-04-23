@@ -1,65 +1,363 @@
-import Image from "next/image";
+import Link from 'next/link'
+import type { Metadata } from 'next'
+import CalButton from '@/components/CalButton'
+
+export const metadata: Metadata = {
+  title: 'Zyflux — Engineering the flow of modern software',
+}
+
+function StarIcon() {
+  return (
+    <svg viewBox="0 0 24 24">
+      <polygon points="12,2 14.8,8.6 22,9.3 16.5,14.1 18.2,21.2 12,17.3 5.8,21.2 7.5,14.1 2,9.3 9.2,8.6" />
+    </svg>
+  )
+}
+
+function Stars() {
+  return (
+    <span className="stars">
+      <StarIcon /><StarIcon /><StarIcon /><StarIcon /><StarIcon />
+    </span>
+  )
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* HERO */}
+      <section className="hero">
+        <div className="hero-mesh">
+          <div className="hero-grid-bg" />
+          <div className="hero-blob b1" data-parallax="0.04" />
+          <div className="hero-blob b2" data-parallax="-0.03" />
+          <div className="hero-blob b3" data-parallax="0.06" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="hero-orbit" data-parallax="-0.02">
+          <div className="ring" />
+          <div className="ring ring-2" />
+          <div className="ring ring-3" />
+          <div className="ring-glow" />
+          <div className="core" />
+          <div className="dot d1" />
+          <div className="dot d2" />
+          <div className="dot d3" />
         </div>
-      </main>
-    </div>
-  );
+        <div className="container hero-inner">
+          <div className="hero-grid-layout">
+            <div>
+              <h1>
+                <span className="line"><span>Engineering</span></span>
+                <span className="line">
+                  <span>the <em style={{ fontStyle: 'normal' }} className="gradient-text">flow</em> of</span>
+                </span>
+                <span className="line"><span>modern software.</span></span>
+              </h1>
+            </div>
+            <div className="hero-side">
+              <p>We design, build, and ship digital products — ERP, CRM, ecommerce, apps, and digital marketing — for teams that care about craft and velocity.</p>
+              <div className="hero-cta">
+                <CalButton className="btn btn-primary magnetic">
+                  Schedule a meeting
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M7 17L17 7M10 7h7v7" /></svg>
+                </CalButton>
+                <Link href="/projects" className="btn btn-ghost">See our work</Link>
+              </div>
+              <div className="hero-ticker">
+                <div className="label">Live</div>
+                <div className="stream">
+                  <div className="stream-inner">
+                    <span>› deploy · ledger-ui <em className="up" style={{ fontStyle: 'normal' }}>+2.4%</em></span>
+                    <span>› build · atlas-agent <em className="up" style={{ fontStyle: 'normal' }}>ok</em></span>
+                    <span>› release · routewise v4.2</span>
+                    <span>› ship · pulse-intake <em className="up" style={{ fontStyle: 'normal' }}>+14%</em></span>
+                    <span>› commit · civic-portal</span>
+                    <span>› deploy · ledger-ui <em className="up" style={{ fontStyle: 'normal' }}>+2.4%</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Metrics */}
+          <div className="metrics reveal">
+            <div className="metric">
+              <div className="n"><span data-count="60" data-suffix="+">0+</span></div>
+              <div className="l">Products shipped</div>
+            </div>
+            <div className="metric">
+              <div className="n"><span data-count="24">0</span></div>
+              <div className="l">Active engagements</div>
+            </div>
+            <div className="metric">
+              <div className="n">
+                <span data-count="9">0</span>
+                <span style={{ fontSize: '0.5em', color: 'var(--ink-dim)' }}>mo</span>
+              </div>
+              <div className="l">Avg. build time</div>
+            </div>
+            <div className="metric">
+              <div className="n">
+                <span data-count="4.9" data-decimals="1">0</span>
+                <span style={{ fontSize: '0.5em', color: 'var(--ink-dim)' }}>/5</span>
+              </div>
+              <div className="l">Client rating</div>
+            </div>
+          </div>
+
+          {/* Trust badges */}
+          <div className="trust reveal">
+            <div className="trust-label">Rated by</div>
+            <div className="trust-row">
+              <a href="#" className="trust-item" aria-label="Trustpilot">
+                <span className="logo">
+                  <svg viewBox="0 0 24 24" fill="oklch(0.78 0.16 150)">
+                    <polygon points="12,2 14.8,8.6 22,9.3 16.5,14.1 18.2,21.2 12,17.3 5.8,21.2 7.5,14.1 2,9.3 9.2,8.6" />
+                  </svg>
+                  Trustpilot
+                </span>
+                <span className="rating"><Stars /> 4.9 · 142</span>
+              </a>
+              <a href="#" className="trust-item" aria-label="Clutch">
+                <span className="logo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="oklch(0.78 0.14 220)" strokeWidth="2">
+                    <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="3.5" fill="oklch(0.78 0.14 220)" />
+                  </svg>
+                  Clutch
+                </span>
+                <span className="rating"><Stars /> 5.0 · 38</span>
+              </a>
+              <a href="#" className="trust-item" aria-label="Contra">
+                <span className="logo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M18 8a6 6 0 1 0 0 8" />
+                  </svg>
+                  Contra
+                </span>
+                <span className="rating">Top 1% studio</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="hero-scroll"><span>Scroll</span><div className="bar" /></div>
+      </section>
+
+      {/* MARQUEE */}
+      <div className="marquee">
+        <div className="marquee-track">
+          {['ERP systems','CRM platforms','Ecommerce','Landing pages','Flutter apps','Meta & Google Ads','SEO','Social media',
+            'ERP systems','CRM platforms','Ecommerce','Landing pages','Flutter apps','Meta & Google Ads','SEO','Social media'].map((item, i) => (
+            <div key={i} className="marquee-item">{item}<span /></div>
+          ))}
+        </div>
+      </div>
+
+      {/* SERVICES */}
+      <section id="services">
+        <div className="container">
+          <div className="section-head reveal">
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 22 }}>Services</div>
+              <h2>What we do,<br />end to end.</h2>
+            </div>
+            <p>Zyflux operates as an extended engineering partner — one team across product strategy, design, and delivery. Pick a single lane or hand off the whole stack.</p>
+          </div>
+
+          <div className="services reveal-stagger">
+            <article className="card service wide">
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <div className="glyph">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><path d="M17.5 14v7M14 17.5h7" /></svg>
+                  </div>
+                  <span className="service-num">01 / ERP</span>
+                </div>
+              </div>
+              <div>
+                <h3>ERP Systems</h3>
+                <p>Custom enterprise resource platforms — inventory, finance, HR, procurement — unified into one operating surface tailored to your workflow.</p>
+                <div className="service-tags"><span>Modular</span><span>Multi-tenant</span><span>Role-based access</span><span>Audit-ready</span></div>
+              </div>
+            </article>
+
+            <article className="card service wide">
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <div className="glyph">
+                    <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" /><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" /><circle cx="17" cy="6" r="2" /><path d="M14 13c0-2 1.3-3 3-3s3 1 3 3" /></svg>
+                  </div>
+                  <span className="service-num">02 / CRM</span>
+                </div>
+              </div>
+              <div>
+                <h3>CRM Platforms</h3>
+                <p>Sales pipelines, customer lifecycle, and support desks in one place. Built around how your team actually sells — not a rigid SaaS template.</p>
+                <div className="service-tags"><span>Pipeline automation</span><span>Email sync</span><span>Analytics</span><span>Integrations</span></div>
+              </div>
+            </article>
+
+            <article className="card service">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div className="glyph">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M3 8h18M7 12h6" /></svg>
+                </div>
+                <span className="service-num">03 / Web</span>
+              </div>
+              <div>
+                <h3>Web Platforms</h3>
+                <p>Production-grade web platforms — including ecommerce storefronts and high-conversion landing pages. Performance-budgeted, accessible, SEO-ready.</p>
+                <div className="service-tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Supabase</span><span>Shopify</span></div>
+              </div>
+            </article>
+
+            <article className="card service">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div className="glyph">
+                  <svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2" /><path d="M11 18h2" /></svg>
+                </div>
+                <span className="service-num">04 / Apps</span>
+              </div>
+              <div>
+                <h3>Mobile Apps</h3>
+                <p>iOS and Android apps shipped fast. We lean on Flutter and FlutterFlow for cross-platform builds without the native compromise.</p>
+                <div className="service-tags"><span>Flutter</span><span>FlutterFlow</span><span>React Native</span><span>Swift</span><span>Kotlin</span><span>Firebase</span></div>
+              </div>
+            </article>
+
+            <article className="card service">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div className="glyph">
+                  <svg viewBox="0 0 24 24"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6 6l1.4 1.4M16.6 16.6L18 18M6 18l1.4-1.4M16.6 7.4L18 6" /><circle cx="12" cy="12" r="4" /><circle cx="12" cy="12" r="1.5" fill="currentColor" /></svg>
+                </div>
+                <span className="service-num">05 / AI</span>
+              </div>
+              <div>
+                <h3>AI &amp; Agents</h3>
+                <p>LLM integration, RAG pipelines, and autonomous workflows embedded into your product surface.</p>
+                <div className="service-tags"><span>RAG</span><span>Agents</span><span>OpenAI</span></div>
+              </div>
+            </article>
+
+            <article className="card service full">
+              <div className="service-body">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 24 }}>
+                  <div className="glyph">
+                    <svg viewBox="0 0 24 24"><path d="M3 11l18-7v16l-18-7z" /><path d="M7 13v5a2 2 0 002 2h1a2 2 0 002-2v-3" /></svg>
+                  </div>
+                  <span className="service-num">06 / Growth</span>
+                </div>
+                <h3>Digital Marketing</h3>
+                <p style={{ maxWidth: '52ch' }}>Full-funnel growth — performance ads, organic search, and social run as one team. Creative, media buying, community, and reporting under a single growth loop.</p>
+                <div className="service-tags"><span>Meta Ads</span><span>Google Ads</span><span>SEO</span><span>Social media marketing</span><span>Social media management</span></div>
+              </div>
+              <div className="service-visual viz-flow">
+                <svg viewBox="0 0 400 200" preserveAspectRatio="none">
+                  <path d="M0,100 C80,40 160,160 240,100 S400,40 400,100" />
+                  <path d="M0,130 C80,70 160,190 240,130 S400,70 400,130" style={{ opacity: 0.5 }} />
+                  <path d="M0,70 C80,10 160,130 240,70 S400,10 400,70" style={{ opacity: 0.3 }} />
+                </svg>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="process">
+        <div className="container">
+          <div className="section-head reveal">
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 22 }}>Process</div>
+              <h2>How engagements<br />actually run.</h2>
+            </div>
+            <p>No drawn-out discovery. We move from first call to shipping code in weeks, not quarters, and stay embedded with your team the whole way.</p>
+          </div>
+          <div className="process-grid reveal-stagger">
+            <div className="process-step">
+              <div className="process-num">/ 01 — Week 1</div>
+              <h3>Scope &amp; align</h3>
+              <p>We map the problem space, constraints, and what &quot;done&quot; looks like. Fixed-price discovery sprint.</p>
+            </div>
+            <div className="process-step">
+              <div className="process-num">/ 02 — Weeks 2–4</div>
+              <h3>Design in code</h3>
+              <p>Prototypes in the real runtime — no Figma-to-code translation debt. You click what you&apos;ll ship.</p>
+            </div>
+            <div className="process-step">
+              <div className="process-num">/ 03 — Weeks 4–12+</div>
+              <h3>Build &amp; ship</h3>
+              <p>Weekly production releases. You see progress in the product, not in a burndown chart.</p>
+            </div>
+            <div className="process-step">
+              <div className="process-num">/ 04 — Ongoing</div>
+              <h3>Operate &amp; evolve</h3>
+              <p>Long-term partnership: observability, iteration, on-call, and roadmap planning with your team.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SHOWCASE */}
+      <section>
+        <div className="container">
+          <div className="section-head reveal">
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 22 }}>Selected work</div>
+              <h2>Shipped,<br />in the wild.</h2>
+            </div>
+            <p>A sample of recent engagements across fintech, health, logistics, and internal tooling. <Link href="/projects" style={{ color: 'var(--ink)', textDecoration: 'underline', textUnderlineOffset: 4 }}>See all projects →</Link></p>
+          </div>
+          <div className="showcase-grid reveal-stagger">
+            <Link href="/projects" className="showcase-card">
+              <div className="showcase-thumb thumb-1" />
+              <div className="showcase-body">
+                <div className="showcase-meta"><span>Fintech · 2025</span><span>↗</span></div>
+                <h3>Ledger — treasury dashboard</h3>
+                <p>Real-time cash position across 14 banks and 6 currencies for a $400M fintech.</p>
+              </div>
+            </Link>
+            <Link href="/projects" className="showcase-card">
+              <div className="showcase-thumb thumb-2" />
+              <div className="showcase-body">
+                <div className="showcase-meta"><span>AI platform · 2025</span><span>↗</span></div>
+                <h3>Atlas — knowledge agent</h3>
+                <p>Company-wide RAG search trained on 40k docs, embedded in Slack and the intranet.</p>
+              </div>
+            </Link>
+            <Link href="/projects" className="showcase-card">
+              <div className="showcase-thumb thumb-3" />
+              <div className="showcase-body">
+                <div className="showcase-meta"><span>Logistics · 2024</span><span>↗</span></div>
+                <h3>Routewise — fleet ops</h3>
+                <p>Dispatch console and driver app serving 1,200 trucks across three regions.</p>
+              </div>
+            </Link>
+            <Link href="/projects" className="showcase-card">
+              <div className="showcase-thumb thumb-4" />
+              <div className="showcase-body">
+                <div className="showcase-meta"><span>Health · 2024</span><span>↗</span></div>
+                <h3>Pulse — clinical intake</h3>
+                <p>HIPAA-ready intake flow cutting new-patient onboarding from 22 min to 4.</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section>
+        <div className="container">
+          <div className="cta-band reveal">
+            <div className="eyebrow" style={{ justifyContent: 'center', marginBottom: 24 }}>Ready when you are</div>
+            <h2>Have a product in mind?<br />Let&apos;s get into the flow.</h2>
+            <p>Typical engagements start within two weeks. Tell us the shape of the problem — we&apos;ll send back a plan.</p>
+            <CalButton className="btn btn-primary magnetic">
+              Schedule a meeting
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M7 17L17 7M10 7h7v7" /></svg>
+            </CalButton>
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }
