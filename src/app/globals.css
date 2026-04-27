@@ -172,10 +172,10 @@ section { padding: 120px 0; position: relative; }
   .nav-cta-mobile {
     display: block; width: 100%; text-align: left;
     padding: 12px 16px; border-radius: 12px; margin-top: 4px;
-    background: oklch(1 0 0 / 0.06); color: var(--ink);
+    background: var(--ink); color: var(--bg);
     font-size: 15px; font-weight: 500;
   }
-  .nav-cta-mobile:hover { background: oklch(1 0 0 / 0.1); transform: none; }
+  .nav-cta-mobile:hover { background: var(--ink); opacity: 0.9; transform: none; }
 }
 
 /* ——— Buttons ——— */
