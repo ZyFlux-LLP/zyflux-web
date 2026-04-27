@@ -23,7 +23,7 @@ export default function SharedInteractions() {
       { threshold: 0.4 }
     )
     document.querySelectorAll<HTMLElement>('[data-count]').forEach((c) => {
-      if (!c.closest('.hero')) countIO.observe(c)
+      countIO.observe(c)
     })
 
     return () => {
