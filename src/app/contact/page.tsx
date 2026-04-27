@@ -53,7 +53,10 @@ export default function ContactPage() {
       <section style={{ padding: 0 }}>
         <div className="container">
           <div className="contact-grid">
-            <aside className="reveal">
+            <div className="reveal">
+              <ContactForm />
+            </div>
+            <aside className="contact-info reveal">
               <div className="info-block">
                 <h4>Email</h4>
                 <div className="big"><a href="mailto:team@zyflux.com">team@zyflux.com</a></div>
@@ -93,9 +96,6 @@ export default function ContactPage() {
                 </div>
               </div>
             </aside>
-            <div className="reveal">
-              <ContactForm />
-            </div>
           </div>
         </div>
       </section>
