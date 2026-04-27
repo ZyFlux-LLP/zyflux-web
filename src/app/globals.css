@@ -639,7 +639,11 @@ section { padding: 120px 0; position: relative; }
 
 /* ——— Contact ——— */
 .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; padding: 60px 0 120px; }
-@media (max-width: 960px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 960px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-grid aside { order: 2; }
+  .contact-grid aside + div { order: 1; }
+}
 .info-block { padding: 32px; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--bg-elev); margin-bottom: 16px; }
 .info-block h4 { font-family: var(--font-mono); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-dim); margin-bottom: 16px; }
 .info-block .big { font-family: var(--font-display); font-size: 22px; letter-spacing: -0.01em; line-height: 1.3; }
