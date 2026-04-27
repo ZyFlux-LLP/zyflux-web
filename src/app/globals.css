@@ -667,7 +667,7 @@ section { padding: 120px 0; position: relative; }
 .field textarea { min-height: 120px; resize: vertical; font-family: var(--font-body); }
 .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent); }
 .field input::placeholder, .field textarea::placeholder { color: var(--ink-dim); }
-.field select { appearance: none; cursor: pointer; }
+.field select { appearance: none; cursor: pointer; color-scheme: dark; }
 .field.select-wrap::after { content: '▾'; position: absolute; right: 4px; bottom: 12px; color: var(--ink-dim); pointer-events: none; }
 .chip-group { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
 .chip { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink-muted); font-size: 13px; cursor: pointer; transition: all .3s var(--ease); font-family: var(--font-body); }
